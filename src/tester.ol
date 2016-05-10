@@ -11,7 +11,7 @@ outputPort DockerEvalOut {
 main
 {
 	startSandBoxRequest.evaluatorFile = "~/Documents/jolieFun/server.ol";
-  	requestSandbox@DockerEvalOut(startSandBoxRequest)(sandBoxLocation);
-  	valueToPrettyString(sandBoxLocation)(fun);
+  	requestSandbox@DockerEvalOut( startSandBoxRequest )( sandBoxLocation );
+  	valueToPrettyString@StringUtils( sandBoxLocation )( fun );
   	println@Console( fun )()
 }

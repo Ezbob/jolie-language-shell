@@ -24,9 +24,11 @@ define dockerExecution
 		.args[2] = "true";
 		.stdOutConsoleEnable = false
 	};
-	exec@Exec(docker)(dockerResult);
+	exec@Exec( docker )( dockerResult );
+	
 	undef( docker );
-	dockerInstanceId = string(dockerResult)
+	
+	dockerInstanceId = string( dockerResult )
 }
 
 define inspectContainer
@@ -38,33 +40,46 @@ define inspectContainer
   	  .args[2] = dockerInstanceId;
   	  .stdOutConsoleEnable = false
   	};
-  	exec@Exec(docker)(dockerResult);
-  	valueToPrettyString@StringUtils(dockerResult)(pretty);
+  	exec@Exec( docker )( dockerResult );
+
+  	valueToPrettyString@StringUtils( dockerResult )( pretty );
+  	
   	println@Console( pretty )()
+}
+
+define copyToTemp
+{
+  	readFile@File({ .filename = startRequest.evaluatorFile })(copyContent);
+		
+	tmpFileName = ".tmp/" + randomName + ".ol";
+
+	with ( newFile ) {
+		.content = copyContent;
+		.filename = tmpFileName
+	};
+
+	writeFile@File( newFile )()	
 }
 
 main {
 	[ requestSandbox( startRequest )( response ) {
+		
 		getRandomUUID@StringUtils()( randomName );
-		tmpFileName = ".tmp/" + randomName + ".ol";
-		with ( newFile ) {
-			.content = startRequest.evaluatorProgram
-			.filename = global.tmpFileName
-		};
-		writeFile(newFile)();
+
+		copyToTemp;
 		dockerExecution;
 		inspectContainer;
+		
 		response.status = "TEST";
 		response.url = "";
 		response.port = 8000
-	} ]  
+	} ] 
 
 	[ evaluate( evalRequest )( evalResponse ) {
 		nullProcess
 	} ]
 
-	[ stopSandBox( void ) {
+	[ stopSandBox() {
 		nullProcess
-		/* shutdown code */
 	} ]
 }
