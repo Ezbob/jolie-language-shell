@@ -1,7 +1,7 @@
 
 type sandBoxLocation:void {
     .status:string
-    .url:string
+    .ip:string
     .port:long
 }
 
@@ -21,7 +21,6 @@ type evalResponse:string {
 interface DockerEvaluatorIFace {
     RequestResponse: 
         requestSandbox(startSandBoxRequest)(sandBoxLocation),
-        evaluate(evalRequest)(evalResponse)
-    OneWay:
-        stopSandbox(void)
+        evaluate(evalRequest)(evalResponse),
+        stopSandbox(void)(void)
 }

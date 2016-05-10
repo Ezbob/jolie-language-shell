@@ -1,7 +1,11 @@
 include "dockerEvaluatorIFace.iol"
 include "file.iol"
 include "string_utils.iol"
+include "json_utils.iol"
 include "exec.iol"
+include "console.iol"
+
+execution { concurrent }
 
 inputPort DockerEvalIn {
     Location: "socket://localhost:9000"
@@ -17,69 +21,61 @@ init {
 define dockerExecution
 {
 	getServiceDirectory@File( void )( serviceDir );
-	docker = "./scripts/run.sh";
-	with( docker ){
+	docker = "../scripts/run.sh";
+	with ( docker ) {
 		.args[0] = "8000";
 		.args[1] = tmpFileName;
 		.args[2] = "true";
+		.waitFor = 2000;
 		.stdOutConsoleEnable = false
 	};
-	exec@Exec( docker )( dockerResult );
-	
-	undef( docker );
-	
-	dockerInstanceId = string( dockerResult )
+	exec@Exec( docker )( dockerOut );
+	dockerInstanceId = string( dockerOut );
+	undef( docker )
 }
 
-define inspectContainer
+define getContainerIP
 {
-  	docker = "sudo";
+  	docker = "../scripts/getIp.sh"; // jolie doesn't like docker's json for some reason
   	with( docker ) {
-  	  .args[0] = "docker";
-  	  .args[1] = "inspect";
-  	  .args[2] = dockerInstanceId;
+  	  .args[0] = dockerInstanceId;
   	  .stdOutConsoleEnable = false
   	};
-  	exec@Exec( docker )( dockerResult );
-
-  	valueToPrettyString@StringUtils( dockerResult )( pretty );
-  	
-  	println@Console( pretty )()
+  	exec@Exec( docker )( dockerOut );
+  	dockerInstanceIP = string( dockerOut );
+  	undef ( dockerOut )
 }
 
 define copyToTemp
 {
-  	readFile@File({ .filename = startRequest.evaluatorFile })(copyContent);
-		
+
+  	readFile@File({ .filename = startRequest.evaluatorFile })( copyContent );
+
 	tmpFileName = ".tmp/" + randomName + ".ol";
 
-	with ( newFile ) {
-		.content = copyContent;
-		.filename = tmpFileName
-	};
-
-	writeFile@File( newFile )()	
+	writeFile@File( { .filename = tmpFileName, .content = copyContent } )()
 }
 
 main {
 	[ requestSandbox( startRequest )( response ) {
 		
 		getRandomUUID@StringUtils()( randomName );
-
 		copyToTemp;
 		dockerExecution;
-		inspectContainer;
+		getContainerIP;
+
+		println@Console( dockerInstanceIP )();
 		
-		response.status = "TEST";
-		response.url = "";
+		response.status = "ACCEPTED";
+		response.ip = dockerInstanceIP;
 		response.port = 8000
-	} ] 
+	} ]
 
 	[ evaluate( evalRequest )( evalResponse ) {
 		nullProcess
-	} ]
+	} ] 
 
-	[ stopSandBox() {
+	[ stopSandbox()() {
 		nullProcess
-	} ]
+	} ] 
 }

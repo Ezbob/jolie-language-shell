@@ -10,7 +10,7 @@ outputPort DockerEvalOut {
 
 main
 {
-	startSandBoxRequest.evaluatorFile = "~/Documents/jolieFun/server.ol";
+	startSandBoxRequest.evaluatorFile = "/home/ezbob/Documents/jolieFun/server.ol";
   	requestSandbox@DockerEvalOut( startSandBoxRequest )( sandBoxLocation );
   	valueToPrettyString@StringUtils( sandBoxLocation )( fun );
   	println@Console( fun )()
