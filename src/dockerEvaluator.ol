@@ -4,6 +4,8 @@ include "string_utils.iol"
 include "json_utils.iol"
 include "exec.iol"
 include "console.iol"
+include "path.iol"
+include "jolie_docker.iol"
 
 execution { concurrent }
 
@@ -13,62 +15,43 @@ inputPort DockerEvalIn {
     Interfaces: DockerEvaluatorIFace
 }
 
-init {
-	deleteDir@File( ".tmp" )();
-	mkdir@File( ".tmp" )()
-}
-
-define dockerExecution
-{
-	getServiceDirectory@File( void )( serviceDir );
-	docker = "../scripts/run.sh";
-	with ( docker ) {
-		.args[0] = "8000";
-		.args[1] = tmpFileName;
-		.args[2] = "true";
-		.waitFor = 2000;
-		.stdOutConsoleEnable = false
-	};
-	exec@Exec( docker )( dockerOut );
-	dockerInstanceId = string( dockerOut );
-	undef( docker )
-}
-
 define getContainerIP
 {
-  	docker = "../scripts/getIp.sh"; // jolie doesn't like docker's json for some reason
+  	docker = "docker"; // jolie doesn't like docker's json for some reason
   	with( docker ) {
-  	  .args[0] = dockerInstanceId;
+  	  .args[0] = "inspect";
+  	  .args[1] = "--format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'";
+  	  .args[2] = startRequest.containerName;
   	  .stdOutConsoleEnable = false
   	};
   	exec@Exec( docker )( dockerOut );
-  	dockerInstanceIP = string( dockerOut );
-  	undef ( dockerOut )
-}
-
-define copyToTemp
-{
-
-  	readFile@File({ .filename = startRequest.evaluatorFile })( copyContent );
-
-	tmpFileName = ".tmp/" + randomName + ".ol";
-
-	writeFile@File( { .filename = tmpFileName, .content = copyContent } )()
+  	
+  	trim@StringUtils( string( dockerOut ) )( dockerInstanceIP );
+  	undef( dockerOut );
+  	undef( docker )
 }
 
 main {
 	[ requestSandbox( startRequest )( response ) {
-		
-		getRandomUUID@StringUtils()( randomName );
-		copyToTemp;
-		dockerExecution;
-		getContainerIP;
 
-		println@Console( dockerInstanceIP )();
+		portExposed = 8000; // maybe implement some checks for 
+
+		requestSandBox@JolieDocker( {
+			.filename = startRequest.evaluatorFile,
+			.containerName = startRequest.containerName,
+			.port = portExposed,
+			.detach = true
+		} )( startDockerResponse );
 		
-		response.status = "ACCEPTED";
-		response.ip = dockerInstanceIP;
-		response.port = 8000
+		if ( is_defined( startDockerResponse.stderr ) ) {
+			response.status = "FAILED";
+			response.error = startDockerResponse.stderr
+		} else {		
+			getContainerIP;
+			response.status = "ACCEPTED";
+			response.ip = dockerInstanceIP;
+			response.port = portExposed	
+		}
 	} ]
 
 	[ evaluate( evalRequest )( evalResponse ) {

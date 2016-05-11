@@ -1,12 +1,14 @@
 
-type sandBoxLocation:void {
+type sandboxLocation:void {
     .status:string
-    .ip:string
-    .port:long
+    .ip?:string
+    .port?:int
+    .error?:string
 }
 
-type startSandBoxRequest:void {
+type startRequest:void {
     .evaluatorFile:string
+    .containerName:string 
 }
 
 type evalRequest:string {
@@ -20,7 +22,7 @@ type evalResponse:string {
 
 interface DockerEvaluatorIFace {
     RequestResponse: 
-        requestSandbox(startSandBoxRequest)(sandBoxLocation),
-        evaluate(evalRequest)(evalResponse),
-        stopSandbox(void)(void)
+        requestSandbox( startRequest)( sandboxLocation ),
+        evaluate( evalRequest )( evalResponse ),
+        stopSandbox( void )( void )
 }
