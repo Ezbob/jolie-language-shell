@@ -6,13 +6,7 @@ type sandboxStartRequest:void {
 	.detach:bool
 }
 
-type sandboxStartResponse:void {
-	.stderr?:string
-	.stdout?:string
-	.exitCode:int
-}
-
-type haltSandboxResponse:void {
+type sandboxCommandResponse:void {
 	.stderr?:string
 	.stdout?:string
 	.exitCode:int
@@ -25,8 +19,8 @@ type ipResponse:void {
 
 interface JolieDockerInterface {
 	RequestResponse: 
-  		requestSandbox( sandboxStartRequest )( sandboxStartResponse ),
-  		haltSandbox( string )( haltSandboxResponse ),
+  		requestSandbox( sandboxStartRequest )( sandboxCommandResponse ),
+  		haltSandbox( string )( sandboxCommandResponse ),
   		getSandboxIP( string )( ipResponse )
 }
 

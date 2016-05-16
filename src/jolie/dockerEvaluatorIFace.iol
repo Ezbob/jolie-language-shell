@@ -1,7 +1,6 @@
 
-type sandboxResponse:void {
-    .status:string
-    .containerName?:string
+type sandboxResponse:string {
+    .containerName:string
     .error?:string
 }
 

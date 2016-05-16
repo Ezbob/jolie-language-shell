@@ -14,10 +14,10 @@ main
   	requestSandbox@DockerSandbox( {
   		.containerName = containerName,
   		.evaluatorFile = "/home/ezbob/Documents/jolieFun/server.ol"
-  	} )( sandboxName );
+  	} )( sandboxResponse );
   	
-  	valueToPrettyString@StringUtils( sandBoxName )( fun );
-  	println@Console( fun )();
+  	println@Console( sandboxResponse )();
+  	println@Console( sandboxResponse.containerName )();
 
 /*
   	send@DockerSandbox({

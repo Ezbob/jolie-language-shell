@@ -22,6 +22,7 @@ outputPort DockerEvalOut {
 main {
 	[ requestSandbox( startRequest )( startResponse ) {
 
+		println@Console( "Received request for container: " + startRequest.containerName  )();
 		portExposed = 8000; // maybe implement some checks for in-use
 
 		requestSandbox@JolieDocker( {
@@ -31,23 +32,20 @@ main {
 			.detach = true
 		} )( startDockerResponse );
 
-		trim@StringUtils(startDockerResponse.stderr)(stderr);
-		trim@StringUtils(startDockerResponse.stdout)(stdout);
-		
-		if ( stderr != "" ) {
-			startResponse.status = "FAILED";
-			startResponse.error = startDockerResponse.stderr
+		valueToPrettyString@StringUtils(startDockerResponse)(pretty);
+		println@Console(  pretty )();
 
-		} else {		
-			
-			getSandboxIP@JolieDocker(startRequest.containerName)(addressResponse);
-			
+		if ( is_defined( startDockerResponse.stderr ) ) {
+			startResponse = "FAILED";
+			startResponse.containerName = startRequest.containerName
+		} else {
+			getSandboxIP@JolieDocker( startRequest.containerName )( addressResponse );
+
 			DockerEvalOut.location = "socket://" + addressResponse.ipAddress + ":" + portExposed;
 			DockerEvalOut.protocol = "sodep";
 
-			global.containerName = startRequest.containerName;
-
-			startResponse.status = "ACCEPTED";	
+			println@Console( "Request granted for container: " + startRequest.containerName )();		
+			startResponse = "ACCEPTED";
 			startResponse.containerName = startRequest.containerName
 		}
 	} ]
@@ -58,16 +56,7 @@ main {
 		);
 
 		valueToPrettyString@StringUtils(sendRequest)(pretty);
-		println@Console( pretty )();
-		println@Console( "-->" + global.containerName )();
-
-		if ( global.containerName == sendRequest.containerName ) {
-
-			nullProcess
-
-		} else {
-		 	throw( sandbox_not_init ) 
-		}
+		println@Console( pretty )()
 
 	} ]
 
@@ -75,10 +64,10 @@ main {
 		println@Console( "Container " + containerName + " halting..." )();
 		haltSandbox@JolieDocker( containerName )( response );
 
-		trim@StringUtils(response.stderr)(stderr);
-		trim@StringUtils(response.stdout)(stdout);
+		valueToPrettyString@StringUtils( response )( pretty );
+		println@Console( pretty )();
 
-		if ( stderr != "" ) {
+		if ( is_defined( response.stderr ) ) {
 			println@Console( "Halting error: " + response.stderr )();
 			println@Console( "Container not halted." )()
 
