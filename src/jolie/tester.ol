@@ -2,18 +2,32 @@ include "dockerEvaluatorIFace.iol"
 include "console.iol"
 include "string_utils.iol"
 
-outputPort DockerEvalOut {
+outputPort DockerSandbox {
 	Location: "socket://localhost:9000"
 	Protocol: sodep
-	Interfaces: DockerEvaluatorIFace
+	Interfaces: ContainerConfigIFace
 }
 
 main
 {
-  	requestSandbox@DockerEvalOut( {
-  		.containerName = "test1",
+	containerName = "test1";
+  	requestSandbox@DockerSandbox( {
+  		.containerName = containerName,
   		.evaluatorFile = "/home/ezbob/Documents/jolieFun/server.ol"
-  	} )( sandBoxLocation );
-  	valueToPrettyString@StringUtils( sandBoxLocation )( fun );
-  	println@Console( fun )()
+  	} )( sandboxName );
+  	
+  	valueToPrettyString@StringUtils( sandBoxName )( fun );
+  	println@Console( fun )();
+
+/*
+  	send@DockerSandbox({
+  		.containerName = "test1",
+  		.language = "jolie",
+  		.code = "include \"console.iol\"\n main { println@Console( \"hello\" )() }\n"
+  	})( response );
+
+  	valueToPrettyString@StringUtils(response)(pretty);
+  	println@Console( pretty )();
+*/
+	stopSandbox@DockerSandbox( containerName )()
 }
