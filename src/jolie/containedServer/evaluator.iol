@@ -1,14 +1,13 @@
-type evalRequest:string {
+type runRequest:string {
 	.language:string
 }
 
-type evalResponse:void {
+type runResponse:void {
 	.result?:string
 	.error?:string
 }
 
-
 interface EvaluatorIFace { 
   RequestResponse: 
-  	evalCode( evalRequest )( evalResponse )
+  	evalCode( runRequest )( runResponse )
 }

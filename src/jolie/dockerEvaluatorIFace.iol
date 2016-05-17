@@ -9,20 +9,17 @@ type sandboxRequest:void {
     .containerName:string 
 }
 
-type sendResponse:void {
-    .stdout?:string
-    .stderr?:string
+type evalRequest:string {
+    .language:string
 }
 
-type sendRequest:void {
-    .containerName:string
-    .language:string
-    .code:string
+type evalResponse:string {
+    .error?:string
 }
 
 interface ContainerConfigIFace {
     RequestResponse: 
         requestSandbox( sandboxRequest )( sandboxResponse ),
-        send('sendRequest )( sendResponse ),
+        evaluate( evalRequest )( evalResponse ),
         stopSandbox( string )( void )
 }
