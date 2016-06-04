@@ -1,9 +1,11 @@
 include "../jolieExtensions/interfaces/jolie_docker.iol"
 include "../jolieExtensions/interfaces/file_extras.iol"
+include "../jolieExtensions/interfaces/path.iol"
 include "file.iol"
 include "string_utils.iol"
 include "console.iol"
 include "dockerEvaluatorIFace.iol"
+include "jar:file://" + japsFile + "!/common.iol"
 
 
 execution { sequential }

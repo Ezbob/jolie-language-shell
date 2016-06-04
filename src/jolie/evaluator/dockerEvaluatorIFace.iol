@@ -9,17 +9,8 @@ type sandboxRequest:void {
     .containerName:string 
 }
 
-type evalRequest:string {
-    .language:string
-}
-
-type evalResponse:string {
-    .error?:string
-}
-
 interface ContainerConfigIFace {
     RequestResponse: 
         requestSandbox( sandboxRequest )( sandboxResponse ),
-        evaluate( evalRequest )( evalResponse ),
         stopSandbox( string )( void )
 }
