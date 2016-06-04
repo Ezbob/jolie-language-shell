@@ -1,4 +1,4 @@
-include "dockerEvaluatorIFace.iol"
+include "../evaluator/dockerEvaluatorIFace.iol"
 include "console.iol"
 include "string_utils.iol"
 
@@ -13,11 +13,11 @@ main
 	containerName = "test1";
   	requestSandbox@DockerSandbox( {
   		.containerName = containerName,
-  		.evaluatorJap = "/home/ezbob/Documents/jolieFun/project/src/jolie/server.jap"
+  		.evaluatorJap = "/home/ezbob/Documents/jolieFun/project/src/jolie/tests/server.jap"
   	} )( sandboxResponse );
   	
   	println@Console( sandboxResponse )();
-  	println@Console( sandboxResponse.containerName )()
+  	println@Console( sandboxResponse.containerName )();
 
 /*
   	send@DockerSandbox({
@@ -29,5 +29,5 @@ main
   	valueToPrettyString@StringUtils(response)(pretty);
   	println@Console( pretty )();
 */
-	//stopSandbox@DockerSandbox( containerName )()
+	stopSandbox@DockerSandbox( containerName )()
 }

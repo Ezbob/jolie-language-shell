@@ -1,8 +1,10 @@
+include "../jolieExtensions/interfaces/jolie_docker.iol"
+include "../jolieExtensions/interfaces/file_extras.iol"
 include "file.iol"
 include "string_utils.iol"
-include "../docker/jolie_docker.iol"
-include "dockerEvaluatorIFace.iol"
 include "console.iol"
+include "dockerEvaluatorIFace.iol"
+
 
 execution { sequential }
 
@@ -23,9 +25,13 @@ define copyToTmp
 
 	mkdir@File( "tmp" )( exists );
 	tmpFileLink = "tmp/" + startRequest.containerName + ".jap";
-	readFile@File( { .filename = startRequest.evaluatorJap } )( contents );
-	writeFile@File( { .filename = tmpFileLink, .content = contents } )();
-	undef( contents )
+
+	println@Console( startRequest.evaluatorJap )();
+
+	copyFile@FileExtras( {
+		.sourceFile = startRequest.evaluatorJap,
+		.destinationFile = tmpFileLink
+	} )()
 }
 
 main {
