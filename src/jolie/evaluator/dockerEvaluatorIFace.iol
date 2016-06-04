@@ -5,7 +5,7 @@ type sandboxResponse:string {
 }
 
 type sandboxRequest:void {
-    .evaluatorFile:string
+    .evaluatorJap:string
     .containerName:string 
 }
 

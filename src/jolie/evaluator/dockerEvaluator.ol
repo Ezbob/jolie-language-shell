@@ -1,11 +1,8 @@
-include "dockerEvaluatorIFace.iol"
 include "file.iol"
 include "string_utils.iol"
-include "json_utils.iol"
+include "../docker/jolie_docker.iol"
+include "dockerEvaluatorIFace.iol"
 include "console.iol"
-include "path.iol"
-include "jolie_docker.iol"
-include "containedServer/evaluator.iol"
 
 execution { sequential }
 
@@ -15,25 +12,20 @@ inputPort DockerEvalIn {
 	Interfaces: ContainerConfigIFace
 }
 
-outputPort DockerEvalOut {
-	Interfaces: EvaluatorIFace 
-}
-
 
 define copyToTmp
 {
-	exists@File( ".tmp" )( tmpExists );
+	exists@File( "tmp" )( tmpExists );
 
 	if ( tmpExists ) {
-		deleteDir@File( ".tmp" )(  )
+		deleteDir@File( "tmp" )(  )
 	};
 
-	mkdir@File( ".tmp" )( exists );
-	getRandomUUID@StringUtils()( name );
-
-	tmpFileLink = ".tmp/" + name + ".ol";
-	readFile@File( { .filename = startRequest.evaluatorFile } )( contents );
-	writeFile@File( { .filename = tmpFileLink, .content = contents } )()
+	mkdir@File( "tmp" )( exists );
+	tmpFileLink = "tmp/" + startRequest.containerName + ".jap";
+	readFile@File( { .filename = startRequest.evaluatorJap } )( contents );
+	writeFile@File( { .filename = tmpFileLink, .content = contents } )();
+	undef( contents )
 }
 
 main {
@@ -41,7 +33,7 @@ main {
 
 		copyToTmp;
 
-		println@Console( "Received request for container: " + startRequest.containerName  )();
+		println@Console( "Received request for container: " + startRequest.containerName )();
 		portExposed = 8000; // maybe implement some checks for in-use
 
 		requestSandbox@JolieDocker( {
@@ -71,15 +63,7 @@ main {
 	} ]
 
 	[ evaluate( evaluateRequest )( evaluateResponse ) {
-
-		evalCode@DockerEvalOut( evaluateRequest )( response );
-		if ( is_defined( response.result ) ) {
-			evaluateResponse = response.result
-		};
-
-		if ( is_defined( response.error ) ) {
-			evaluateResponse.error = response.error
-		}
+		nullProcess
 	} ]
 	
 	[ stopSandbox( containerName )() {
