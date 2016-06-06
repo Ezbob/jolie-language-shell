@@ -6,7 +6,7 @@ type copyFileRequest:void {
 
 interface FileExtensionsInterface {
   RequestResponse: 
-	copyFile( copyFileRequest )( void )
+	copyFile( copyFileRequest )( string )
 }
 
 

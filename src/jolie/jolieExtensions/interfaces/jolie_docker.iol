@@ -14,6 +14,23 @@ type sandboxCommandResponse:void {
 
 type ipResponse:void {
 	.ipAddress?:string
+	.ports*:string
+	.error?:string
+}
+
+type availabilityRequest:void {
+	.printInfo:bool
+	.ip:string
+	.port:int
+	.attempts:int
+}
+
+type availabilityResponse:void {
+	.isUp:bool
+}
+
+type logResponse:void {
+	.log?:string
 	.error?:string
 }
 
@@ -21,7 +38,9 @@ interface JolieDockerInterface {
 	RequestResponse: 
   		requestSandbox( sandboxStartRequest )( sandboxCommandResponse ),
   		haltSandbox( string )( sandboxCommandResponse ),
-  		getSandboxIP( string )( ipResponse )
+  		getSandboxIP( string )( ipResponse ),
+  		pingForAvailability( availabilityRequest )( availabilityResponse ),
+  		getLog( string )( logResponse )
 }
 
 

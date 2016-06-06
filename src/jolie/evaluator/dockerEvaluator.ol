@@ -5,7 +5,6 @@ include "file.iol"
 include "string_utils.iol"
 include "console.iol"
 include "dockerEvaluatorIFace.iol"
-include "jar:file://" + japsFile + "!/common.iol"
 
 
 execution { sequential }
@@ -15,6 +14,8 @@ inputPort DockerEvalIn {
 	Protocol: sodep
 	Interfaces: ContainerConfigIFace
 }
+
+outputPort DockerEvalOut { }
 
 
 define copyToTmp
@@ -28,12 +29,10 @@ define copyToTmp
 	mkdir@File( "tmp" )( exists );
 	tmpFileLink = "tmp/" + startRequest.containerName + ".jap";
 
-	println@Console( startRequest.evaluatorJap )();
-
 	copyFile@FileExtras( {
 		.sourceFile = startRequest.evaluatorJap,
 		.destinationFile = tmpFileLink
-	} )()
+	} )( japsFile )
 }
 
 main {
@@ -60,19 +59,57 @@ main {
 			startResponse = "FAILED";
 			startResponse.error = startDockerResponse.stderr
 		} else {
-			getSandboxIP@JolieDocker( startRequest.containerName )( addressResponse );
+			
+			println@Console( "Request granted for container: " + startRequest.containerName )();
 
-			DockerEvalOut.location = "socket://" + addressResponse.ipAddress + ":" + portExposed;
-			DockerEvalOut.protocol = "sodep";
+			println@Console( "Testing connection for container..." )();
 
-			println@Console( "Request granted for container: " + startRequest.containerName )();		
-			startResponse = "ACCEPTED"
+			getSandboxIP@JolieDocker( startRequest.containerName )( address );
+
+			pingForAvailability@JolieDocker({
+					.printInfo = true,
+					.ip = address.ipAddress,
+					.port = int( address.ports[0] ),
+					.attempts = 10000
+			})( availability );
+
+			if ( availability.isUp ) {
+				startResponse = "ACCEPTED"	
+			} else {
+				haltSandbox@JolieDocker( startRequest.containerName )( haltResponse );
+				startResponse = "FAILED";
+
+				if ( is_defined( haltResponse.stderr ) ) {
+					startResponse.error = haltResponse.stderr	
+				}
+			}
 		}
+	} ] 
+
+	[ getBinding( containerName )( bindingResponse ) {
+
+		getSandboxIP@JolieDocker( containerName )( addressResponse );
+		
+		location = "socket://" + addressResponse.ipAddress + ":" + addressResponse.ports[0];
+		protocol = "sodep";
+
+		with ( bindingResponse ) {
+			.location = location;
+			.protocol = protocol
+		}
+
 	} ]
 
-	[ evaluate( evaluateRequest )( evaluateResponse ) {
-		nullProcess
-	} ]
+	[ getOutput( containerName )( outputResponse ) {
+		getLog@JolieDocker( containerName )( logResponse );
+		if ( is_defined( logResponse.log ) ) {
+			outputResponse = logResponse.log
+		} else if ( is_defined( logResponse.error ) ) {
+			outputResponse = logResponse.error
+		} else {
+			outputResponse = ""
+		}
+	}]
 	
 	[ stopSandbox( containerName )() {
 		println@Console( "Container " + containerName + " halting..." )();

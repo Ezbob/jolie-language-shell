@@ -2,7 +2,7 @@ include "evaluator.iol"
 
 main
 {
-  [evalCode()() {
+  [ evalCode( req )( resp ) {
   	
-  }]
+  } ]
 }
