@@ -1,27 +1,32 @@
 include "../evaluator/dockerEvaluatorIFace.iol"
+include "../jolieExtensions/interfaces/file_extras.iol"
 include "console.iol"
 include "time.iol"
 include "string_utils.iol"
 include "jar:file:///home/ezbob/Documents/jolieFun/project/src/jolie/tests/server.jap!/common.iol"
 
 outputPort DockerSandbox {
-	Location: "socket://localhost:9000"
-	Protocol: sodep
-	Interfaces: ContainerConfigIFace
+    Location: "socket://localhost:9000"
+    Protocol: sodep
+    Interfaces: ContainerConfigIFace
 }
 
 
 outputPort ContainedService {
-  Interfaces: ExportedOperationsIFace
+    Interfaces: ExportedOperationsIFace
 }
 
 
 main
 {
     containerName = "test1";
+    japPath = "server.jap";
+
+    toAbsolutePath@FileExtras(japPath)(japAbsPath);
+
     requestSandbox@DockerSandbox( {
       .containerName = containerName,
-      .evaluatorJap = "/home/ezbob/Documents/jolieFun/project/src/jolie/tests/server.jap"
+      .evaluatorJap = japAbsPath
     } )( sandboxResponse );
 
     valueToPrettyString@StringUtils( sandboxResponse )( pretty );

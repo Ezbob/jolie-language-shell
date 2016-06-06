@@ -1,6 +1,5 @@
 include "../jolieExtensions/interfaces/jolie_docker.iol"
 include "../jolieExtensions/interfaces/file_extras.iol"
-include "../jolieExtensions/interfaces/path.iol"
 include "file.iol"
 include "string_utils.iol"
 include "console.iol"
@@ -15,9 +14,6 @@ inputPort DockerEvalIn {
 	Interfaces: ContainerConfigIFace
 }
 
-outputPort DockerEvalOut { }
-
-
 define copyToTmp
 {
 	exists@File( "tmp" )( tmpExists );
@@ -29,7 +25,7 @@ define copyToTmp
 	mkdir@File( "tmp" )( exists );
 	tmpFileLink = "tmp/" + startRequest.containerName + ".jap";
 
-	copyFile@FileExtras( {
+	copy@FileExtras( {
 		.sourceFile = startRequest.evaluatorJap,
 		.destinationFile = tmpFileLink
 	} )( japsFile )

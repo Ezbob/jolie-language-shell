@@ -1,12 +1,13 @@
 
-type copyFileRequest:void {
+type copyRequest:void {
   .sourceFile:string
   .destinationFile:string
 }
 
 interface FileExtensionsInterface {
   RequestResponse: 
-	copyFile( copyFileRequest )( string )
+	copy( copyRequest )( string ),
+	toAbsolutePath(string)(string)
 }
 
 
@@ -16,5 +17,5 @@ Interfaces: FileExtensionsInterface
 
 embedded {
 Java:
-	"joliexx.file.FileExtensions" in FileExtras
+	"joliexx.io.FileExtensions" in FileExtras
 }
