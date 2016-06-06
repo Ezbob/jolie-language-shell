@@ -50,8 +50,8 @@ main {
 			.detach = true
 		} )( startDockerResponse );
 
-		valueToPrettyString@StringUtils(startDockerResponse)(pretty);
-		println@Console(  pretty )();
+		valueToPrettyString@StringUtils( startDockerResponse )( pretty );
+		println@Console( pretty )();
 
 		startResponse.containerName = startRequest.containerName;
 
@@ -61,7 +61,6 @@ main {
 		} else {
 			
 			println@Console( "Request granted for container: " + startRequest.containerName )();
-
 			println@Console( "Testing connection for container..." )();
 
 			getSandboxIP@JolieDocker( startRequest.containerName )( address );
@@ -100,7 +99,23 @@ main {
 
 	} ]
 
-	[ getOutput( containerName )( outputResponse ) {
+	[ getLastOutput( containerName )( outputResponse ) {
+
+		logRequest = containerName;
+		logRequest.tail = 1;
+
+		getLog@JolieDocker( logRequest )( logResponse );
+		if ( is_defined( logResponse.log ) ) {
+			outputResponse = logResponse.log
+		} else if ( is_defined( logResponse.error ) ) {
+			outputResponse = logResponse.error
+		} else {
+			outputResponse = ""
+		}
+	}]
+
+	[ getAllOutput( containerName )( outputResponse ) {
+
 		getLog@JolieDocker( containerName )( logResponse );
 		if ( is_defined( logResponse.log ) ) {
 			outputResponse = logResponse.log

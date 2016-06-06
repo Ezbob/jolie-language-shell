@@ -33,37 +33,18 @@ main
     valueToPrettyString@StringUtils( bindings )( pretty );
 
     println@Console( pretty )();
-/*
-    l = bindings.location;
-    p = bindings.protocol;
 
-    trim@StringUtils( l )( triml );
-    trim@StringUtils( p )( trimp );
-
-    println@Console( triml )();
-    println@Console( trimp )();
-*/
     ContainedService.location = bindings.location;
     ContainedService.protocol = bindings.protocol;
 
-    getOutput@DockerSandbox( containerName )( out );
+    getAllOutput@DockerSandbox( containerName )( out );
     println@Console( out )();
 
     hello@ContainedService()();
     hello@ContainedService()();
 
-    getOutput@DockerSandbox( containerName )( out );
-    println@Console( out )()
+    getLastOutput@DockerSandbox( containerName )( out );
+    println@Console( out )();
 
-/*
-  	send@DockerSandbox({
-  		.containerName = "test1",
-  		.language = "jolie",
-  		.code = "include \"console.iol\"\n main { println@Console( \"hello\" )() }\n"
-  	})( response );
-
-  	valueToPrettyString@StringUtils(response)(pretty);
-  	println@Console( pretty )();
-*/
-	//stopSandbox@DockerSandbox( containerName )()
+    stopSandbox@DockerSandbox( containerName )()
 }

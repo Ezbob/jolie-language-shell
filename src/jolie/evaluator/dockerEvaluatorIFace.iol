@@ -21,5 +21,6 @@ interface ContainerConfigIFace {
         requestSandbox( sandboxRequest )( sandboxResponse ),
         getBinding( string )( bindingResponse ),
         stopSandbox( string )( void ),
-        getOutput( string )( string )
+        getLastOutput( string )( string ),
+        getAllOutput( string )( string )
 }

@@ -34,13 +34,17 @@ type logResponse:void {
 	.error?:string
 }
 
+type logRequest:string {
+	.tail?:int
+}
+
 interface JolieDockerInterface {
 	RequestResponse: 
   		requestSandbox( sandboxStartRequest )( sandboxCommandResponse ),
   		haltSandbox( string )( sandboxCommandResponse ),
   		getSandboxIP( string )( ipResponse ),
   		pingForAvailability( availabilityRequest )( availabilityResponse ),
-  		getLog( string )( logResponse )
+  		getLog( logRequest )( logResponse )
 }
 
 
