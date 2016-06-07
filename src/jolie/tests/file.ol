@@ -1,4 +1,4 @@
-include "../jolieExtensions/interfaces/file_extras.iol"
+include "../javaServices/interfaces/file_extras.iol"
 
 main 
 {

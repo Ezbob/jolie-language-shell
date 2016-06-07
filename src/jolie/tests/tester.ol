@@ -1,9 +1,9 @@
-include "../evaluator/dockerEvaluatorIFace.iol"
-include "../jolieExtensions/interfaces/file_extras.iol"
+include "../dockerService/docker_jolie.iol"
+include "../javaServices/interfaces/file_extras.iol"
 include "console.iol"
 include "time.iol"
 include "string_utils.iol"
-include "jar:file:///home/ezbob/Documents/jolieFun/project/src/jolie/tests/server.jap!/common.iol"
+include "jar:file:///home/ezbob/Documents/jolieFun/project/src/jolie/tests/server/server.jap!/common.iol"
 
 outputPort DockerSandbox {
     Location: "socket://localhost:9000"
@@ -11,18 +11,17 @@ outputPort DockerSandbox {
     Interfaces: ContainerConfigIFace
 }
 
-
 outputPort ContainedService {
     Interfaces: ExportedOperationsIFace
+    Protocol: sodep
 }
-
 
 main
 {
     containerName = "test1";
-    japPath = "server.jap";
+    japPath = "server/server.jap";
 
-    toAbsolutePath@FileExtras(japPath)(japAbsPath);
+    toAbsolutePath@FileExtras( japPath )( japAbsPath );
 
     requestSandbox@DockerSandbox( {
       .containerName = containerName,
@@ -32,24 +31,19 @@ main
     valueToPrettyString@StringUtils( sandboxResponse )( pretty );
     println@Console( pretty )();
 
-
-    getBinding@DockerSandbox( containerName )( bindings );
+    getLocation@DockerSandbox( containerName )( location );
 
     valueToPrettyString@StringUtils( bindings )( pretty );
 
     println@Console( pretty )();
 
-    ContainedService.location = bindings.location;
-    ContainedService.protocol = bindings.protocol;
-
-    getAllOutput@DockerSandbox( containerName )( out );
-    println@Console( out )();
+    ContainedService.location = location;
 
     hello@ContainedService()();
     hello@ContainedService()();
 
     getLastOutput@DockerSandbox( containerName )( out );
-    println@Console( out )();
+    println@Console( out )()
 
-    stopSandbox@DockerSandbox( containerName )()
+    //stopSandbox@DockerSandbox( containerName )()
 }

@@ -53,6 +53,5 @@ outputPort JolieDocker {
 }
 
 embedded {
-Java:
-	"joliexx.docker.service.JolieDocker" in JolieDocker
+	Java: "joliexx.docker.service.JolieDocker" in JolieDocker
 }

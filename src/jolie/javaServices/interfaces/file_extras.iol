@@ -7,15 +7,13 @@ type copyRequest:void {
 interface FileExtensionsInterface {
   RequestResponse: 
 	copy( copyRequest )( string ),
-	toAbsolutePath(string)(string)
+	toAbsolutePath( string )( string )
 }
 
-
 outputPort FileExtras {
-Interfaces: FileExtensionsInterface
+	Interfaces: FileExtensionsInterface
 }
 
 embedded {
-Java:
-	"joliexx.io.FileExtensions" in FileExtras
+	Java: "joliexx.io.FileExtensions" in FileExtras
 }

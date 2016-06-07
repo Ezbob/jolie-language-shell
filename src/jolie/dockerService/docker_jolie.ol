@@ -1,9 +1,9 @@
-include "../jolieExtensions/interfaces/jolie_docker.iol"
-include "../jolieExtensions/interfaces/file_extras.iol"
+include "../javaServices/interfaces/jolie_docker.iol"
+include "../javaServices/interfaces/file_extras.iol"
 include "file.iol"
 include "string_utils.iol"
 include "console.iol"
-include "dockerEvaluatorIFace.iol"
+include "docker_jolie.iol"
 
 
 execution { sequential }
@@ -61,12 +61,13 @@ main {
 
 			getSandboxIP@JolieDocker( startRequest.containerName )( address );
 
-			pingForAvailability@JolieDocker({
+
+			pingForAvailability@JolieDocker( {
 					.printInfo = true,
 					.ip = address.ipAddress,
 					.port = int( address.ports[0] ),
 					.attempts = 10000
-			})( availability );
+			} )( availability );
 
 			if ( availability.isUp ) {
 				startResponse = "ACCEPTED"	
@@ -78,20 +79,14 @@ main {
 					startResponse.error = haltResponse.stderr	
 				}
 			}
+			
 		}
 	} ] 
 
-	[ getBinding( containerName )( bindingResponse ) {
+	[ getLocation( containerName )( locationResponse ) {
 
 		getSandboxIP@JolieDocker( containerName )( addressResponse );
-		
-		location = "socket://" + addressResponse.ipAddress + ":" + addressResponse.ports[0];
-		protocol = "sodep";
-
-		with ( bindingResponse ) {
-			.location = location;
-			.protocol = protocol
-		}
+		locationResponse = "socket://" + addressResponse.ipAddress + ":" + addressResponse.ports[0]
 
 	} ]
 
@@ -123,6 +118,7 @@ main {
 	}]
 	
 	[ stopSandbox( containerName )() {
+
 		println@Console( "Container " + containerName + " halting..." )();
 		haltSandbox@JolieDocker( containerName )( response );
 
@@ -137,5 +133,6 @@ main {
 			println@Console( "Container " + containerName + " halted." )()	
 		};
 		deleteDir@File( ".tmp" )( deleted )
+
 	} ] 
 }

@@ -11,15 +11,14 @@ type sandboxRequest:void {
     .containerName:string 
 }
 
-type bindingResponse:void {
-    .location:string
-    .protocol:string
+type locationResponse:string {
+    .error?:string
 }
 
 interface ContainerConfigIFace {
     RequestResponse: 
         requestSandbox( sandboxRequest )( sandboxResponse ),
-        getBinding( string )( bindingResponse ),
+        getLocation( string )( string ),
         stopSandbox( string )( void ),
         getLastOutput( string )( string ),
         getAllOutput( string )( string )
