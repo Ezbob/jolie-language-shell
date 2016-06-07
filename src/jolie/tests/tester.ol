@@ -3,7 +3,7 @@ include "../javaServices/interfaces/file_extras.iol"
 include "console.iol"
 include "time.iol"
 include "string_utils.iol"
-include "jar:file:///home/ezbob/Documents/jolieFun/project/src/jolie/tests/server/server.jap!/common.iol"
+include "jar:file:///home/ezbob/Documents/jolieFun/project/src/jolie/tests/server/server.jap!/include/common.iol"
 
 outputPort DockerSandbox {
     Location: "socket://localhost:9000"
