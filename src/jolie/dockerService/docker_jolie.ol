@@ -5,7 +5,6 @@ include "string_utils.iol"
 include "console.iol"
 include "docker_jolie.iol"
 
-
 execution { sequential }
 
 inputPort DockerEvalIn {

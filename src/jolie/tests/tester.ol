@@ -2,8 +2,9 @@ include "../dockerService/docker_jolie.iol"
 include "../javaServices/interfaces/file_extras.iol"
 include "console.iol"
 include "time.iol"
+include "file.iol"
 include "string_utils.iol"
-include "jar:file:///home/ezbob/Documents/jolieFun/project/src/jolie/tests/server/server.jap!/include/common.iol"
+include "../share/shared.iol"
 
 outputPort DockerSandbox {
     Location: "socket://localhost:9000"
@@ -16,10 +17,10 @@ outputPort ContainedService {
     Protocol: sodep
 }
 
-main
-{
+main {
+
     containerName = "test1";
-    japPath = "server/server.jap";
+    japPath = "../share/server/server.jap";
 
     toAbsolutePath@FileExtras( japPath )( japAbsPath );
 
@@ -40,11 +41,20 @@ main
 
     ContainedService.location = location;
 
-    hello@ContainedService()();
-    hello@ContainedService()();
+    toAbsolutePath@FileExtras( "run.ol" )( fullPath );
+
+    readFile@File({
+      .filename = fullPath
+    })( content );
+
+    load@ContainedService( {
+      .program = content,
+      .short = false
+    } )();
+    
 
     getLastLogEntry@DockerSandbox( containerName )( out );
-    println@Console( out )();
+    println@Console( out )()
 
-    stopSandbox@DockerSandbox( containerName )()
+    //stopSandbox@DockerSandbox( containerName )()
 }
