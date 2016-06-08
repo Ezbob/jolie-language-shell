@@ -37,39 +37,33 @@ main {
 		copyToTmp;
 
 		println@Console( "Received request for container: " + startRequest.containerName )();
-		portExposed = 8000; // maybe implement some checks for in-use
-
+		
 		requestSandbox@JolieDocker( {
 			.filename = tmpFileLink,
 			.containerName = startRequest.containerName,
-			.port = portExposed,
+			.port = startRequest.exposedPort,
 			.detach = true
 		} )( startDockerResponse );
-
-		valueToPrettyString@StringUtils( startDockerResponse )( pretty );
-		println@Console( pretty )();
 
 		startResponse.containerName = startRequest.containerName;
 
 		if ( is_defined( startDockerResponse.stderr ) ) {
+
 			startResponse = "FAILED";
 			startResponse.error = startDockerResponse.stderr
 		} else {
 			
 			println@Console( "Request granted for container: " + startRequest.containerName )();
-			println@Console( "Testing connection for container..." )();
+			print@Console( "Testing connection for container..." )();
 
-			getSandboxIP@JolieDocker( startRequest.containerName )( address );
+			waitForSignal@JolieDocker( {
+				.containerName = startRequest.containerName
+				})(
+				signalResponse
+			);
 
-
-			pingForAvailability@JolieDocker( {
-					.printInfo = true,
-					.ip = address.ipAddress,
-					.port = int( address.ports[0] ),
-					.attempts = 10000
-			} )( availability );
-
-			if ( availability.isUp ) {
+			if ( signalResponse.isAlive ) {
+				println@Console( "done." )();
 				startResponse = "ACCEPTED"	
 			} else {
 				haltSandbox@JolieDocker( startRequest.containerName )( haltResponse );
@@ -79,18 +73,19 @@ main {
 					startResponse.error = haltResponse.stderr	
 				}
 			}
-			
 		}
 	} ] 
 
 	[ getLocation( containerName )( locationResponse ) {
 
+		println@Console( "Location request for container " + containerName )();
 		getSandboxIP@JolieDocker( containerName )( addressResponse );
-		locationResponse = "socket://" + addressResponse.ipAddress + ":" + addressResponse.ports[0]
+		locationResponse = "socket://" + addressResponse.ipAddress + ":" + addressResponse.ports[0];
+		println@Console( "Location sent for container " +  containerName + "." )()
 
 	} ]
 
-	[ getLastOutput( containerName )( outputResponse ) {
+	[ getLastLogEntry( containerName )( outputResponse ) {
 
 		logRequest = containerName;
 		logRequest.tail = 1;
@@ -105,7 +100,7 @@ main {
 		}
 	}]
 
-	[ getAllOutput( containerName )( outputResponse ) {
+	[ getWholeLog( containerName )( outputResponse ) {
 
 		getLog@JolieDocker( containerName )( logResponse );
 		if ( is_defined( logResponse.log ) ) {
@@ -121,9 +116,6 @@ main {
 
 		println@Console( "Container " + containerName + " halting..." )();
 		haltSandbox@JolieDocker( containerName )( response );
-
-		valueToPrettyString@StringUtils( response )( pretty );
-		println@Console( pretty )();
 
 		if ( is_defined( response.stderr ) ) {
 			println@Console( "Halting error: " + response.stderr )();

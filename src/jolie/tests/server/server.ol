@@ -9,6 +9,11 @@ inputPort Printer {
 	Interfaces: ExportedOperationsIFace
 }
 
+init
+{
+  println@Console( "ALIVE" )()
+}
+
 main
 {
 	[ hello( void )() {

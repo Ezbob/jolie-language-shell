@@ -8,7 +8,8 @@ type sandboxResponse:string {
 
 type sandboxRequest:void {
     .evaluatorJap:string
-    .containerName:string 
+    .containerName:string
+    .exposedPort?:int 
 }
 
 type locationResponse:string {
@@ -20,6 +21,6 @@ interface ContainerConfigIFace {
         requestSandbox( sandboxRequest )( sandboxResponse ),
         getLocation( string )( string ),
         stopSandbox( string )( void ),
-        getLastOutput( string )( string ),
-        getAllOutput( string )( string )
+        getLastLogEntry( string )( string ),
+        getWholeLog( string )( string )
 }

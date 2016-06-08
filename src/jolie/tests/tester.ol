@@ -25,7 +25,8 @@ main
 
     requestSandbox@DockerSandbox( {
       .containerName = containerName,
-      .evaluatorJap = japAbsPath
+      .evaluatorJap = japAbsPath,
+      .exposedPort = 8000
     } )( sandboxResponse );
 
     valueToPrettyString@StringUtils( sandboxResponse )( pretty );
@@ -42,8 +43,8 @@ main
     hello@ContainedService()();
     hello@ContainedService()();
 
-    getLastOutput@DockerSandbox( containerName )( out );
-    println@Console( out )()
+    getLastLogEntry@DockerSandbox( containerName )( out );
+    println@Console( out )();
 
-    //stopSandbox@DockerSandbox( containerName )()
+    stopSandbox@DockerSandbox( containerName )()
 }

@@ -38,12 +38,23 @@ type logRequest:string {
 	.tail?:int
 }
 
+type signalWaitRequest:void {
+	.containerName:string
+	.printInfo?:bool
+	.attempts?:int 
+	.signalMessage?:string
+}
+
+type signalWaitResponse:void {
+	.isAlive:bool
+}
+
 interface JolieDockerInterface {
 	RequestResponse: 
   		requestSandbox( sandboxStartRequest )( sandboxCommandResponse ),
   		haltSandbox( string )( sandboxCommandResponse ),
   		getSandboxIP( string )( ipResponse ),
-  		pingForAvailability( availabilityRequest )( availabilityResponse ),
+  		waitForSignal( signalWaitRequest )( signalWaitResponse ),
   		getLog( logRequest )( logResponse )
 }
 
