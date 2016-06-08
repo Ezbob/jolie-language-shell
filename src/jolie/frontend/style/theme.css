@@ -1,0 +1,29 @@
+
+#code {
+	height: 300px;
+	width: 788px;
+	margin: 0px;
+	padding: 6px;
+	border-bottom: 1px solid black;
+	display: block;
+}
+
+.codeTextarea {
+	border: none;
+	box-shadow: none;
+	resize: none;
+	overflow: auto;
+}
+
+.codePanel {
+	width: 800px;
+	border: 1px solid black;
+	margin-bottom: 15px;
+}
+
+.results {
+	height: 20px;
+	width: 788px;
+	margin: 6px;
+	display: block;
+}

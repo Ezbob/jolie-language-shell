@@ -54,7 +54,7 @@ main {
     
 
     getLastLogEntry@DockerSandbox( containerName )( out );
-    println@Console( out )()
+    println@Console( out )();
 
-    //stopSandbox@DockerSandbox( containerName )()
+    stopSandbox@DockerSandbox( containerName )()
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Run-It inc.</title>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style/theme.css">
+    </head>
+    <body>
+        <h1>
+            Run-It! inc. version 0.0.0.0.1 pre-pre-pre-alpha 0.1
+        </h1>
+
+        <form action="runCode" enctype="multipart/form-data">
+            <section class="codePanel">
+                
+                <textarea class="codeTextarea" placeholder="Type in your Jolie code here..." name="program" id="code">
+include "console.iol"
+
+main {
+    println@Console("Hello world!")()
+}
+                </textarea>
+
+                <textarea readonly="readonly" class="results codeTextarea" id="output"></textarea>
+                        
+            </section>
+
+            <input type="button" id="runButton" value="Run!"/>
+            
+        </form>
+
+        <script>
+            $("#runButton").click( function() {
+                $("#output").text( "Wait a sec..." );
+                $.ajax( {
+                    url: "/runCode",
+                    dataType: "json",
+                    data: JSON.stringify( {
+                      short: "true",
+                      code: $("#code").val()
+                    } ),
+                    type: "POST",
+                    contentType: "application/json",
+                    success: function( response ) {
+                        $("#output").val( response.$ );
+                    },
+                    error: function() {
+                        $("#output").val( "Ups! Something went wrong... We're Sry :-(" );
+                    }
+                } );
+            } );
+        </script>
+    </body>
+</html>
