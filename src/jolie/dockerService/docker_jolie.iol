@@ -13,14 +13,16 @@ type sandboxRequest:void {
 }
 
 type locationResponse:string {
+    .ports*:string
     .error?:string
 }
 
 interface ContainerConfigIFace {
     RequestResponse: 
         requestSandbox( sandboxRequest )( sandboxResponse ),
-        getLocation( string )( string ),
+        getLocation( string )( locationResponse ),
         stopSandbox( string )( void ),
         getLastLogEntry( string )( string ),
-        getWholeLog( string )( string )
+        getWholeLog( string )( string ),
+        shutdown( void )( void )
 }

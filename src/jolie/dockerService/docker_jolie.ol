@@ -4,6 +4,7 @@ include "file.iol"
 include "string_utils.iol"
 include "console.iol"
 include "docker_jolie.iol"
+include "runtime.iol"
 
 execution { sequential }
 
@@ -15,19 +16,24 @@ inputPort DockerEvalIn {
 
 define copyToTmp
 {
-	exists@File( "tmp" )( tmpExists );
-
-	if ( tmpExists ) {
-		deleteDir@File( "tmp" )(  )
-	};
-
-	mkdir@File( "tmp" )( exists );
-	tmpFileLink = "tmp/" + startRequest.containerName + ".jap";
+	tmpFileLink = global.tmp + "/" + startRequest.containerName + ".jap";
 
 	copy@FileExtras( {
 		.sourceFile = startRequest.evaluatorJap,
 		.destinationFile = tmpFileLink
 	} )( japsFile )
+}
+
+init {
+	global.tmp = "tmp";
+
+	exists@File( global.tmp )( tmpExists );
+
+	if ( tmpExists ) {
+		deleteDir@File( global.tmp )()
+	};
+
+	mkdir@File( global.tmp )( exists )	
 }
 
 main {
@@ -79,7 +85,13 @@ main {
 
 		println@Console( "Location request for container " + containerName )();
 		getSandboxIP@JolieDocker( containerName )( addressResponse );
-		locationResponse = "socket://" + addressResponse.ipAddress + ":" + addressResponse.ports[0];
+		
+		locationResponse = addressResponse.ipAddress;
+
+		if ( is_defined( addressResponse.ports ) ) {
+			locationResponse.ports = addressResponse.ports
+		};
+
 		println@Console( "Location sent for container " +  containerName + "." )()
 
 	} ]
@@ -122,8 +134,14 @@ main {
 
 		} else {
 			println@Console( "Container " + containerName + " halted." )()	
-		};
-		deleteDir@File( ".tmp" )( deleted )
+		}
+		
+	} ]
 
+	[ shutdown()() {
+		print@Console( "Shutting down..." )();
+		deleteDir@File( global.tmp )( deleted );
+		println@Console( "done." )();
+		halt@Runtime({ .status = 0 })()
 	} ] 
 }

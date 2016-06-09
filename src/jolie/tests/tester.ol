@@ -39,16 +39,24 @@ main {
 
     println@Console( pretty )();
 
-    ContainedService.location = location;
+    ContainedService.location = "socket://" + location + ":" + location.ports[0];
 
     toAbsolutePath@FileExtras( "run.ol" )( fullPath );
-
+/*
     readFile@File({
       .filename = fullPath
     })( content );
+*/
+
+    program = "include \"console.iol\"
+
+main
+{
+  println@Console( \"Run this pleaze!\" )()
+}";
 
     load@ContainedService( {
-      .program = content,
+      .program = program,
       .short = false
     } )();
     
@@ -56,5 +64,6 @@ main {
     getLastLogEntry@DockerSandbox( containerName )( out );
     println@Console( out )();
 
-    stopSandbox@DockerSandbox( containerName )()
+    stopSandbox@DockerSandbox( containerName )();
+    shutdown@DockerSandbox()()
 }

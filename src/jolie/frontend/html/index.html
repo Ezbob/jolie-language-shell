@@ -5,8 +5,34 @@
         <title>Run-It inc.</title>
         <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../style/theme.css">
+
     </head>
     <body>
+
+    <h1>
+        Run-It! inc. version 0.0.0.0.1 pre-pre-pre-alpha 0.1
+    </h1>
+
+
+        <div id="editor" class="codePanel">include "console.iol"
+
+main {
+    println@Console( "Hello world!" )()
+}
+</div>
+
+
+<script src="../scripts/ace-builds/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function() {      
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/jolie");  
+    });
+</script>
+
+
+    <!--
         <h1>
             Run-It! inc. version 0.0.0.0.1 pre-pre-pre-alpha 0.1
         </h1>
@@ -14,15 +40,15 @@
         <form action="runCode" enctype="multipart/form-data">
             <section class="codePanel">
                 
-                <textarea class="codeTextarea" placeholder="Type in your Jolie code here..." name="program" id="code">
+                <textarea spellcheck=false class="codeTextarea" placeholder="Type in your Jolie code here..." name="program" id="code">
 include "console.iol"
 
 main {
     println@Console("Hello world!")()
 }
-                </textarea>
+</textarea>
 
-                <textarea readonly="readonly" class="results codeTextarea" id="output"></textarea>
+                <textarea spellcheck=false readonly="readonly" class="results codeTextarea" id="output"></textarea>
                         
             </section>
 
@@ -50,6 +76,7 @@ main {
                     }
                 } );
             } );
-        </script>
+        </script>-->
     </body>
+    
 </html>

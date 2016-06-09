@@ -4,8 +4,8 @@
 	width: 788px;
 	margin: 0px;
 	padding: 6px;
-	border-bottom: 1px solid black;
 	display: block;
+	border-bottom: 1px solid white;
 }
 
 .codeTextarea {
@@ -13,17 +13,24 @@
 	box-shadow: none;
 	resize: none;
 	overflow: auto;
+	background-color: black;
+	color: whitesmoke;
+
 }
 
 .codePanel {
 	width: 800px;
-	border: 1px solid black;
+	height: 400px;
+	/*border: 1px solid black; */
 	margin-bottom: 15px;
+	/*background-color: black;
+	color: whitesmoke;*/
 }
 
 .results {
-	height: 20px;
+	height: 25px;
 	width: 788px;
-	margin: 6px;
+	margin: 0px;
+	padding: 6px;
 	display: block;
 }
