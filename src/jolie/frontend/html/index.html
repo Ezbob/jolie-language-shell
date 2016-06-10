@@ -13,70 +13,35 @@
         Run-It! inc. version 0.0.0.0.1 pre-pre-pre-alpha 0.1
     </h1>
 
-
+    <section class="evaluator">
         <div id="editor" class="codePanel">include "console.iol"
 
 main {
     println@Console( "Hello world!" )()
-}
-</div>
+}</div>
 
+        <span>  
+            <div class="results codeTextarea" id="output"></div>
+            <input class="runbutton" type="button" name="run" value="Run" />
+        </span>
+    </section>
 
-<script src="../scripts/ace-builds/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    $(function() {      
-        var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/monokai");
-        editor.session.setMode("ace/mode/jolie");  
-    });
-</script>
+    <script src="../scripts/ace-builds/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $(function() {      
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/chrome");
+            editor.session.setMode("ace/mode/jolie");  
 
-
-    <!--
-        <h1>
-            Run-It! inc. version 0.0.0.0.1 pre-pre-pre-alpha 0.1
-        </h1>
-
-        <form action="runCode" enctype="multipart/form-data">
-            <section class="codePanel">
-                
-                <textarea spellcheck=false class="codeTextarea" placeholder="Type in your Jolie code here..." name="program" id="code">
-include "console.iol"
-
-main {
-    println@Console("Hello world!")()
-}
-</textarea>
-
-                <textarea spellcheck=false readonly="readonly" class="results codeTextarea" id="output"></textarea>
-                        
-            </section>
-
-            <input type="button" id="runButton" value="Run!"/>
-            
-        </form>
-
-        <script>
-            $("#runButton").click( function() {
-                $("#output").text( "Wait a sec..." );
-                $.ajax( {
-                    url: "/runCode",
-                    dataType: "json",
-                    data: JSON.stringify( {
-                      short: "true",
-                      code: $("#code").val()
-                    } ),
-                    type: "POST",
-                    contentType: "application/json",
-                    success: function( response ) {
-                        $("#output").val( response.$ );
-                    },
-                    error: function() {
-                        $("#output").val( "Ups! Something went wrong... We're Sry :-(" );
-                    }
-                } );
-            } );
-        </script>-->
+            var result = ace.edit("output");
+            result.setTheme("ace/theme/chrome");
+            result.setReadOnly(true);
+            result.setHighlightActiveLine(false);
+            result.insert("Something cool");
+            result.insert("\nSomething cool");
+            result.setShowPrintMargin(false);
+        });
+    </script>
     </body>
     
 </html>

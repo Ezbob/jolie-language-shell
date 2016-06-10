@@ -15,11 +15,12 @@ ace.define("ace/mode/jolie_highlight_rules",["require","exports","module","ace/l
             "undef|interface|RequestResponse|OneWay|" +
             "type|install|scope|define|embedded|foreach|" +
             "with|instanceof|constants|global|execution|" +
-            "concurrent|sequential|single|throw|throws"
+            "throw|throws"
         );
 
         var buildinConstants = ("nullProcess");
-
+        
+        var executionKeywords = ("concurrent|sequential|single"); // TODO put this only in execution block?
 
         var keywordMapper = this.createKeywordMapper({
             "keyword": keywords,
@@ -60,9 +61,17 @@ ace.define("ace/mode/jolie_highlight_rules",["require","exports","module","ace/l
                     token : "lparen",
                     regex : "[[({]"
                 },
-                 {
+                {
                     token : "rparen",
                     regex : "[\\])}]"
+                },
+                {
+                    token : "attoken",
+                    regex : "\@"
+                },
+                {
+                    token : "compose",
+                    regex : "[;\|]"
                 },
                 {
                     token : keywordMapper,
