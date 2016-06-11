@@ -1,0 +1,780 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"gro",
+				"grosser	report.tex"
+			],
+			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"con",
+				"concurrent"
+			],
+			[
+				"exe",
+				"execution	execution"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"ke",
+				"keywordMapper"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"loca",
+				"locationResponse"
+			],
+			[
+				"del",
+				"deleteTmp"
+			],
+			[
+				"tm",
+				"tmp"
+			],
+			[
+				"pro",
+				"program"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"ti",
+				"title	Tag"
+			],
+			[
+				"met",
+				"meta	Tag"
+			],
+			[
+				"f",
+				"fullPath"
+			],
+			[
+				"Co",
+				"ContainedService"
+			],
+			[
+				"pr",
+				"program"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"ev",
+				"evalResponse"
+			],
+			[
+				"ty",
+				"type	type (basic)"
+			],
+			[
+				"Contain",
+				"ContainerIn"
+			],
+			[
+				"Con",
+				"Container"
+			],
+			[
+				"st",
+				"startRequest"
+			],
+			[
+				"reque",
+				"request"
+			],
+			[
+				"signalWait",
+				"signalWaitResponse"
+			],
+			[
+				"sing",
+				"signalWaitRequest"
+			],
+			[
+				"por",
+				"port"
+			],
+			[
+				"jap",
+				"japAbsPath"
+			],
+			[
+				"jolie",
+				"jolieFun"
+			],
+			[
+				"intera",
+				"Interfaces"
+			],
+			[
+				"lo",
+				"logRequest"
+			],
+			[
+				"log",
+				"logRequest"
+			],
+			[
+				"out",
+				"outputResponse"
+			],
+			[
+				"ou",
+				"outputResponse"
+			],
+			[
+				"typ",
+				"type	type (nested)"
+			],
+			[
+				"ha",
+				"haltResponse"
+			],
+			[
+				"sta",
+				"startResponse"
+			],
+			[
+				"hal",
+				"haltSandbox"
+			],
+			[
+				"port",
+				"ports"
+			],
+			[
+				"ip",
+				"ipAddress"
+			],
+			[
+				"get",
+				"getSandboxIP"
+			],
+			[
+				"ava",
+				"availabilityResponse"
+			],
+			[
+				"tr",
+				"trimp"
+			],
+			[
+				"trim",
+				"trimp"
+			],
+			[
+				"so",
+				"sodep"
+			],
+			[
+				"C",
+				"ContainedService"
+			],
+			[
+				"loac",
+				"location"
+			],
+			[
+				"star",
+				"startResponse"
+			],
+			[
+				"interf",
+				"interfaces"
+			],
+			[
+				"inter",
+				"interfaces"
+			],
+			[
+				"inte",
+				"Interfaces"
+			],
+			[
+				"Fi",
+				"FileExtras"
+			],
+			[
+				"File",
+				"FileExtensionsInterface"
+			],
+			[
+				"co",
+				"copyFileRequest"
+			],
+			[
+				"conte",
+				"contents"
+			],
+			[
+				"jolie-la",
+				"jolie-launchers"
+			],
+			[
+				"is",
+				"is_defined	is_defined"
+			],
+			[
+				"show",
+				"showHelp"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"BACK",
+				"background-color"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"perm",
+				"permutations"
+			],
+			[
+				"eva",
+				"evaluatorFile"
+			],
+			[
+				"ex",
+				"exists"
+			],
+			[
+				"tmp",
+				"tmpExists"
+			],
+			[
+				"eve",
+				"evaluateResponse"
+			],
+			[
+				"Ev",
+				"evaluator"
+			],
+			[
+				"t",
+				"type	type (basic)"
+			],
+			[
+				"Doc",
+				"DockerEvalOut"
+			],
+			[
+				"pri",
+				"print	print"
+			],
+			[
+				"pre",
+				"pretty"
+			],
+			[
+				"start",
+				"startRequest"
+			],
+			[
+				"s",
+				"stderr"
+			],
+			[
+				"Halt",
+				"halting"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"std",
+				"stdout"
+			],
+			[
+				"sed",
+				"sendRequest"
+			],
+			[
+				"d",
+				"dockerInstanceIP"
+			],
+			[
+				"send",
+				"sendRequest"
+			],
+			[
+				"dock",
+				"dockerInstanceIP"
+			],
+			[
+				"hat",
+				"haltContainer"
+			],
+			[
+				"par",
+				"parentPath"
+			],
+			[
+				"Fa",
+				"FaultException"
+			],
+			[
+				"ab",
+				"absolutePath"
+			],
+			[
+				"FA",
+				"FaultException"
+			],
+			[
+				"doc",
+				"docker"
+			],
+			[
+				"Jo",
+				"JolieDockerInterface"
+			],
+			[
+				"sadn",
+				"sandboxStartResult"
+			],
+			[
+				"tpy",
+				"type	type (nested)"
+			],
+			[
+				"dc",
+				"dockerOut"
+			],
+			[
+				"docker",
+				"dockerInstanceId"
+			],
+			[
+				"docke",
+				"dockerInstanceId"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"prin",
+				"print	print"
+			],
+			[
+				"ser",
+				"server"
+			],
+			[
+				"cop",
+				"copyContent"
+			],
+			[
+				"sand",
+				"startSandBoxRequest"
+			],
+			[
+				"ins",
+				"inspectContainer"
+			],
+			[
+				"pa",
+				"pathToFile"
+			],
+			[
+				"rep",
+				"response"
+			],
+			[
+				"getPro",
+				"getProperty"
+			],
+			[
+				"thr",
+				"throws"
+			],
+			[
+				"c",
+				"currentDir"
+			],
+			[
+				"sc",
+				"scriptName"
+			],
+			[
+				"a",
+				"args"
+			],
+			[
+				"dockerEx",
+				"dockerExecReq"
+			],
+			[
+				"type",
+				"type	type (nested)"
+			],
+			[
+				"acc",
+				"acceptMessage"
+			],
+			[
+				"mess",
+				"messageIn"
+			],
+			[
+				"for",
+				"foreach	for (each)"
+			],
+			[
+				"res",
+				"requestresponse	RequestResponse"
+			],
+			[
+				"tpye",
+				"type	type (nested)"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					"Clean up Files"
+				]
+			],
+			[
+				"Packages/LaTeXing/LaTeX.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 272.0,
+		"last_filter": "previ",
+		"selected_items":
+		[
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 55.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/ezbob/Documents/jolieFun/project",
+		"/home/ezbob/Documents/jolieFun/project/src"
+	],
+	"file_history":
+	[
+		"/home/ezbob/Documents/sat/report/report.tex",
+		"/home/ezbob/Documents/jolieFun/fun.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/buildHighlight/highlight/jolie_highlight_rules.js",
+		"/home/ezbob/.config/sublime-text-3/Packages/jolie/JolieProperties.tmLanguage",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/highlight/Jolie.tmLanguage",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/ace/lib/ace/ext/modelist.js",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/ace/Readme.md",
+		"/home/ezbob/.config/sublime-text-3/Packages/jolie/Jolie.tmLanguage",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/ace/lib/ace/mode/jolie.js",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/ace-builds/src/mode-tex.js",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/ace/lib/ace/mode/jolie_highlight_rules.js",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/ace/lib/ace/mode/tex.js",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/frontend/scripts/ace/README.md",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/server/server.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/client.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/javaServices/interfaces/jolie_docker.iol",
+		"/home/ezbob/Documents/jolieFun/fun/copy.ol",
+		"/home/ezbob/Documents/jolieFun/jolie/support/metaservice-java/src/joliex/metaservice/MetaService.java",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/server/common.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/server/server.",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/server/createJap.sh",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/common.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/server.ol",
+		"/home/ezbob/.cache/.fr-hSAz3U/sodepTestSuite/printerTest.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/containedServer/dummy.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/file.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/evaluator/docker_jolie.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/evaluator/docker_jolie.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/jolieExtensions/interfaces/jolie_docker.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/jolieExtensions/interfaces/file_extras.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/containedServer/evaluator.iol",
+		"/home/ezbob/.cache/.fr-fA5hRU/joliexx/io/FileExtensions.java",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/jolieExtensions/interfaces/path.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/docker/jolie_docker.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/jolieExtensions/javaServices/dockerJavaService.jar",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tests/file_extras.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/path.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/jolie_docker.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/dockerEvaluatorIFace.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/tester.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/dockerEvaluator.ol",
+		"/home/ezbob/Documents/jolieFun/jolie/include/file.iol",
+		"/home/ezbob/Documents/chemo/exam/canonicalRepre.md",
+		"/home/ezbob/Documents/latex/tikz/tikz.tex",
+		"/home/ezbob/Documents/cfun/asciiCounter/ASCII.txt",
+		"/home/ezbob/Documents/c++fun/apair.cc",
+		"/home/ezbob/Documents/jolieFun/jolie/javaServices/coreJavaServices/src/joliex/io/FileService.java",
+		"/home/ezbob/Documents/htmlfun/Jolie Programming Language - Official Website_files/style.css",
+		"/home/ezbob/Documents/htmlfun/landing-page.css",
+		"/home/ezbob/Documents/htmlfun/Jolie Programming Language - Official Website_files/text.css",
+		"/home/ezbob/Documents/htmlfun/Jolie Programming Language - Official Website_files/footer.css",
+		"/home/ezbob/Documents/htmlfun/Jolie Programming Language - Official Website_files/header.css",
+		"/home/ezbob/Documents/htmlfun/Jolie Programming Language - Official Website_files/stylesheet.css",
+		"/home/ezbob/Documents/htmlfun/Jolie Programming Language - Official Website_files/landing-page.css",
+		"/home/ezbob/.config/sublime-text-3/Packages/MarkdownEditing/README.md",
+		"/home/ezbob/Documents/chemo/assignment2/assignment2kemo/test.py",
+		"/home/ezbob/Documents/chemo/assignment2/assignment2kemo/main.cpp",
+		"/home/ezbob/Documents/chemo/assignment2/report/report.tex",
+		"/home/ezbob/Downloads/pgfmanual-en-tikz-matrices.tex",
+		"/home/ezbob/Documents/latex/tikz/Untitled latexA4EngReport.tex",
+		"/home/ezbob/.cache/.fr-MI7p3Q/lastpage/README",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/b0994064-3ea2-4b46-ae87-c9a9a79b96b9.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/evaluator.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie/fun.ol",
+		"/home/ezbob/Downloads/README",
+		"/home/ezbob/Documents/jolieFun/project/src/dockerEvaluatorIFace.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie_docker.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/tester.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/dockerEvaluator.ol",
+		"/home/ezbob/Documents/jolieFun/project/scripts/run.sh",
+		"/home/ezbob/Documents/jolieFun/project/src/dockerServer.ol",
+		"/home/ezbob/.cache/.fr-Ftk2DR/META-INF/MANIFEST.MF",
+		"/home/ezbob/.cache/.fr-QBBiK0/META-INF/MANIFEST.MF",
+		"/home/ezbob/Documents/jolieFun/project/src/path.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/dockerServerIFace.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolieDocker.iol",
+		"/home/ezbob/Documents/jolieFun/server.ol",
+		"/home/ezbob/Documents/jolieFun/common.iol",
+		"/home/ezbob/Documents/jolieFun/scripts/run.sh",
+		"/home/ezbob/Documents/jolieFun/project/scripts/getIp.sh",
+		"/home/ezbob/Documents/jolieFun/path.iol",
+		"/home/ezbob/Documents/jolieFun/absolute_path.ol",
+		"/home/ezbob/Documents/jolieFun/absolute_path.iol",
+		"/home/ezbob/Documents/jolieFun/AbsolutePath.ol",
+		"/home/ezbob/Documents/jolieFun/AbsolutePath.iol",
+		"/home/ezbob/Documents/jolieFun/run.sh",
+		"/home/ezbob/Documents/jolieFun/jolie/dist/jolie/include/exec.iol",
+		"/home/ezbob/Documents/jolieFun/jolie/javaServices/coreJavaServices/src/joliex/meta/MetaJolie.java",
+		"/home/ezbob/Documents/jolieFun/jolie/javaServices/coreJavaServices/src/com/damnhandy/uri/template/UriTemplateMatcherFactory.java",
+		"/home/ezbob/Documents/jolieFun/project/src/dockerManagerIFace.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/sandboxManagerIFace.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/sandboxManager.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/jolie.ol",
+		"/home/ezbob/.config/sublime-text-3/Packages/Terminal/Terminal.sublime-settings",
+		"/home/ezbob/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/ezbob/hello"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"<=",
+			"(?:((?<=\\S)\\.(?=\\S))|(.))",
+			"/(?:((?<=\\S)\\.(?=\\S))|(.))/",
+			"throw",
+			"DockerEvalOut",
+			"fun",
+			"t",
+			"setJHProc",
+			"cset",
+			"serviceDirectory\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 25.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/LaTeXing/LaTeX.sublime-build",
+	"project": "dockerjolie.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
