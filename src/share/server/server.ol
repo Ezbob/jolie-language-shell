@@ -3,14 +3,11 @@ include "file.iol"
 include "common.iol"
 include "console.iol"
 include "time.iol"
+include "exec.iol"
+include "json_utils.iol"
 
 constants {
     TIMEOUT = 2000
-}
-
-inputPort LocalInput {
-	Location: "local"
-	Interfaces: ExportedOperationsIFace
 }
 
 inputPort CloudServer {
@@ -30,7 +27,7 @@ init
 
 main
 {
-	[ load( request )( token ) {
+	[ eval( request )( output ) {
 		filename = "tmp/" + new;
 		filename += ".ol";
 
@@ -50,23 +47,17 @@ main
 		  println@Console( main.RuntimeException.stackTrace )()
 		);
 
-		loadEmbeddedService@Runtime( {
-		  .type = "jolie",
-		  .filepath = filename
-		} )( location );
+		exec@Exec( "jolie" {
+			.args[0] = filename,
+      		.waitFor = 1,
+			.stdOutConsoleEnable = false
+		})( fun );
 
-
-		token = new;
-		global.map.(token) = location;
-
-
-		setNextTimeout@Time( TIMEOUT {
-		  .operation = "unload",
-		  .message = token
-		} )
-	} ]
-
-	[ unload( token )() {
-		callExit@Runtime( global.map.(token) )()
+		if (is_defined(fun.stderr)) {
+			output = "There is an error in your code."
+		} else {
+			output = string ( fun )
+		};
+		delete@File(filename)()
 	} ]
 }

@@ -6,6 +6,5 @@ type LoadRequest:void {
 
 interface ExportedOperationsIFace {
 	RequestResponse: 
-		load(LoadRequest)(any),
-  		unload(any)(void)
+		eval(LoadRequest)(undefined)
 }

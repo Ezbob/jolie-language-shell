@@ -17,9 +17,8 @@ $(function() {
         }).always(function(){
             console.log("Sending...");
         }).done(function(data){
-            result.gotoLine(result.session.getLength());
-            result.insert(data + "\n");
-            result.gotoLine(result.session.getLength());
+            result.selectAll();
+            result.insert(data);
         }).fail(function(){
             console.log("Failed!");
         });

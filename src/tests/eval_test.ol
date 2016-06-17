@@ -82,8 +82,7 @@ main
         scope( scp2 )
         {
             install( TypeMismatch => println@Console( "Invalid request for runCode" )(); throw( TypeMismatch ) );
-            load@ContainedService( request )( token );
-            getLastLogEntry@DockerSandbox( global.containerName )( response )
+            eval@ContainedService( request )( response )
         }
   	} ]
 
@@ -110,7 +109,10 @@ main
             
             toAbsolutePath@FileExtras( filename )( filename );
 
-            install( PermissionDenied => println@Console( "[FILE NOT FOUND: " + filename + " ]" )(); statusCode = 404 );
+            install( PermissionDenied => 
+                println@Console( "[FILE NOT FOUND: " + filename + " ]" )(); 
+                statusCode = 404 
+            );
 
             toAbsolutePath@FileExtras( WWWDirectory )( absPublic );
             contains@StringUtils( filename { .substring = absPublic } )( inPublicDir );
