@@ -55,8 +55,10 @@ main
 		  .filepath = filename
 		} )( location );
 
+
 		token = new;
 		global.map.(token) = location;
+
 
 		setNextTimeout@Time( TIMEOUT {
 		  .operation = "unload",
@@ -65,7 +67,6 @@ main
 	} ]
 
 	[ unload( token )() {
-		println@Console( "Unloaded" )();
 		callExit@Runtime( global.map.(token) )()
 	} ]
 }

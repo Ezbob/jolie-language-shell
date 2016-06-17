@@ -1,5 +1,6 @@
 $(function() {
 	var editor = ace.edit("editor");
+    var result = ace.edit("output");
 	$('.runbutton').click(function() {
         var stuff = editor.getValue();
 
@@ -15,8 +16,10 @@ $(function() {
         	data: content
         }).always(function(){
             console.log("Sending...");
-        }).done(function(d){
-            console.log("Sent! " + d);
+        }).done(function(data){
+            result.gotoLine(result.session.getLength());
+            result.insert(data + "\n");
+            result.gotoLine(result.session.getLength());
         }).fail(function(){
             console.log("Failed!");
         });

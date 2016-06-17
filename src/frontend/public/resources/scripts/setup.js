@@ -9,4 +9,5 @@ $(function() {
     result.setReadOnly(true);
     result.setHighlightActiveLine(false);
     result.setShowPrintMargin(false);
+    result.$blockScrolling = Infinity;
 });
