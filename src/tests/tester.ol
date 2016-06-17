@@ -27,7 +27,7 @@ main {
     requestSandbox@DockerSandbox( {
       .containerName = containerName,
       .evaluatorJap = japAbsPath,
-      .exposedPort = 8000
+      .exposedPort = 8005
     } )( sandboxResponse );
 
     valueToPrettyString@StringUtils( sandboxResponse )( pretty );

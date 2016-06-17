@@ -41,4 +41,9 @@
 	border-left: 0px;
 	border-top: 0px;
 	height: 101px;
+	outline: none;
+}
+
+.runbutton:active {
+	box-shadow: inset 1px 1px 1px grey;
 }

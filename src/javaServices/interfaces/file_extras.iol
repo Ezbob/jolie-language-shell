@@ -7,7 +7,8 @@ type copyRequest:void {
 interface FileExtensionsInterface {
   RequestResponse: 
 	copy( copyRequest )( string ),
-	toAbsolutePath( string )( string )
+	toAbsolutePath( string )( string ),
+	getMimeType( string )( string )
 }
 
 outputPort FileExtras {

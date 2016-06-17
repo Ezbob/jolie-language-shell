@@ -55,7 +55,8 @@ interface JolieDockerInterface {
   		haltSandbox( string )( sandboxCommandResponse ),
   		getSandboxIP( string )( ipResponse ),
   		waitForSignal( signalWaitRequest )( signalWaitResponse ),
-  		getLog( logRequest )( logResponse )
+  		getLog( logRequest )( logResponse ),
+  		attach( string )( void )
 }
 
 

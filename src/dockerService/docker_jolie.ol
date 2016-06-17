@@ -14,6 +14,22 @@ inputPort DockerEvalIn {
 	Interfaces: ContainerConfigIFace
 }
 
+define addMonitorService
+{
+  	monitor = "include \"../javaServices/interfaces/jolie_docker.iol\"\n main { attach@JolieDocker( \"" + 
+  		startRequest.containerName + "\" )() }\n";
+  	
+  	monFilename = "tmp/_" + startRequest.containerName + ".ol";
+
+  	writeFile@File({.content = monitor, .filename = monFilename })();
+
+  	scope( dope ) {
+  		install( RuntimeException => println@Console( "Embedding of monitor failed" )() );
+  	
+  		loadEmbeddedService@Runtime({ .type = "jolie", .filepath = monFilename })() 
+  	}
+}
+
 define copyToTmp
 {
 	tmpFileLink = global.tmp + "/" + startRequest.containerName + ".jap";
@@ -59,6 +75,11 @@ main {
 		} else {
 			
 			println@Console( "Request granted for container: " + startRequest.containerName )();
+
+			print@Console( "Setting up monitor service..." )();
+			addMonitorService;
+			println@Console( "done." )();
+
 			print@Console( "Testing connection for container..." )();
 
 			waitForSignal@JolieDocker( {
