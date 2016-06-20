@@ -5,6 +5,7 @@ include "console.iol"
 include "time.iol"
 include "exec.iol"
 include "json_utils.iol"
+include "../../javaServices/interfaces/exec_extras.iol"
 
 constants {
     TIMEOUT = 2000
@@ -46,7 +47,7 @@ main
 		install( RuntimeException =>
 		  println@Console( main.RuntimeException.stackTrace )()
 		);
-
+/*
 		exec@Exec( "jolie" {
 			.args[0] = filename,
       		.waitFor = 0,
@@ -54,17 +55,20 @@ main
 		})( fun );
 
 		sleep@Time( TIMEOUT )();
+*/
 
-		if ( is_defined( fun ) ) {
+		timeOutExec@ExecExtras("jolie" {
+			.args[0] = filename,
+			.timeOut = TIMEOUT,
+			.printOut = true
+		})( evalResponse );
 
-			if ( is_defined(fun.stderr) ) {
-				output = "There is an error in your code."
-			} else {
-				output = string ( fun )
-			}	
-		} else { 
-			output = "Execution timed out"
-		};
+		if ( is_defined( evalResponse.stderr ) ) {
+			output = "There is an error in your code: " + evalResponse.stderr 
+		} else {
+			output = evalResponse.stdout
+		};	
+		
 		delete@File(filename)()
 	} ]
 /*
