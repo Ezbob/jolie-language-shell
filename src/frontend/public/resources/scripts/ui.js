@@ -4,7 +4,7 @@ $(function() {
 	$('.runbutton').click(function() {
         var stuff = editor.getValue();
 
-        var url = "http://localhost:9002/runCode";
+        var url = "/runCode";
 
         var content = {
 		      short: false,
@@ -14,12 +14,10 @@ $(function() {
         $.post({
         	url: url,
         	data: content
-        }).always(function(){
-            console.log("Sending...");
-        }).done(function(data){
+        }).done(function(data) {
             result.selectAll();
             result.insert(data);
-        }).fail(function(){
+        }).fail(function() {
             console.log("Failed!");
         });
     });

@@ -8,6 +8,6 @@ type RunRequest:void {
 interface WebIface {
 	RequestResponse:
 	  runCode(RunRequest)(undefined),
-	  stop(void)(string),
-	  editor(undefined)(undefined)
+	  editor(undefined)(undefined),
+	  shutdown(void)(undefined)
 }

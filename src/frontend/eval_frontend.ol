@@ -1,19 +1,24 @@
 include "../dockerService/docker_jolie.iol"
 include "../javaServices/interfaces/file_extras.iol"
-include "../frontend/frontend_service.iol"
 include "../share/shared.iol"
 include "console.iol"
 include "time.iol"
 include "file.iol"
 include "string_utils.iol"
-include "eval_test.iol"
+include "eval_frontend.iol"
 
 execution { 
 	concurrent 
 }
 
+constants {
+    WWW_DIR = "../frontend/public/",
+    WWW_LOCATION = "socket://localhost:8888",
+    EVAL_PORT = 8005,
+}
+
 inputPort WebIn {
-    Location: "socket://localhost:9002"
+    Location: WWW_LOCATION
     Protocol: http { 
         .format = "html";
         .contentType -> mime;
@@ -35,13 +40,7 @@ outputPort DockerSandbox {
     Interfaces: ContainerConfigIFace
 }
 
-constants {
-    WWWDirectory = "../frontend/public/"
-}
-
-
-init
-{
+init {
     println@Console( "Starting..." )();
     global.containerName = "test1";
     japPath = "../share/server/server.jap";
@@ -50,15 +49,17 @@ init
     requestSandbox@DockerSandbox( {
       .containerName = global.containerName,
       .evaluatorJap = japAbsPath,
-      .exposedPort = 8005
+      .exposedPort = EVAL_PORT
     } )( sandboxResponse );
 
     getLocation@DockerSandbox( global.containerName )( location );
 
     ContainedService.location = "socket://" + location + ":" + location.ports[0];
-    println@Console( ContainedService.location )();
     
-    println@Console( "Started." )()
+    println@Console( "Started." )();
+
+    println@Console( "Browse to " + WWW_LOCATION )()
+
 }
 
 define defaultPage {
@@ -76,12 +77,24 @@ define defaultPage {
     }
 }
 
-main
-{
+define notFoundPage {
+    response = "<!DOCTYPE HTML><html><head><title>404 Request</title></head><body><h2>Code 404: File not found</h2>"
+    + "<p>We're sorry, but the page that you request isn't there</p> <br/> <p>:,(</p></body></html>"
+}
+
+define shutdownPage {
+    response = "<!DOCTYPE HTML><html><head><title>Server shutdown</title></head><body><h2>Server shutdown</h2>" 
+    + "<p> Server is now down. Thanks for trying out the interactive Jolie interpreter!</p>"
+}
+
+main {
  	[ runCode( request )( response ) {
         scope( scp2 )
         {
-            install( TypeMismatch => println@Console( "Invalid request for runCode" )(); throw( TypeMismatch ) );
+            install( TypeMismatch => 
+                println@Console( "Invalid request for runCode" )(); 
+                throw( TypeMismatch ) 
+            );
             eval@ContainedService( request )( response )
         }
   	} ]
@@ -90,6 +103,7 @@ main
         scope( scp ) {
             install( FileNotFound => 
                 println@Console( "[FILE NOT FOUND: " + filename + " ]" )(); 
+                notFoundPage;
                 statusCode = 404 
             );
 
@@ -105,32 +119,33 @@ main
             // setting up the default index.html page
             defaultPage;
 
-            filename = WWWDirectory + op.result[0];
+            filename = WWW_DIR + op.result[0];
             
             toAbsolutePath@FileExtras( filename )( filename );
 
             install( PermissionDenied => 
                 println@Console( "[FILE NOT FOUND: " + filename + " ]" )(); 
+                notFoundPage;
                 statusCode = 404 
             );
 
-            toAbsolutePath@FileExtras( WWWDirectory )( absPublic );
+            toAbsolutePath@FileExtras( WWW_DIR )( absPublic );
             contains@StringUtils( filename { .substring = absPublic } )( inPublicDir );
 
             if ( !inPublicDir ) {
                 throw( PermissionDenied )
             };
 
-            readFile@File({ .filename = filename } )( response );
+            readFile@File( { .filename = filename } )( response );
 
             getMimeType@FileExtras( filename )( mime );
             println@Console( "[SERVED: " + op.result[0] + ", CONTENT-TYPE: " + mime + " ]" )()
         }
     } ]
 
-	[ stop()(response) {
-		stopSandbox@DockerSandbox( global.containerName )();
-    	shutdown@DockerSandbox()();
-    	response = "STOPPED"
-	}]
+    [ shutdown()( response ) {
+        stopSandbox@DockerSandbox( global.containerName )();
+        shutdown@DockerSandbox()();
+        shutdownPage
+    }] { exit }
 }

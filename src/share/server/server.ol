@@ -49,15 +49,27 @@ main
 
 		exec@Exec( "jolie" {
 			.args[0] = filename,
-      		.waitFor = 1,
-			.stdOutConsoleEnable = false
+      		.waitFor = 0,
+			.stdOutConsoleEnable = true
 		})( fun );
 
-		if (is_defined(fun.stderr)) {
-			output = "There is an error in your code."
-		} else {
-			output = string ( fun )
+		sleep@Time( TIMEOUT )();
+
+		if ( is_defined( fun ) ) {
+
+			if ( is_defined(fun.stderr) ) {
+				output = "There is an error in your code."
+			} else {
+				output = string ( fun )
+			}	
+		} else { 
+			output = "Execution timed out"
 		};
 		delete@File(filename)()
 	} ]
+/*
+	[ runCode( request )( response ) {
+
+	} ]
+	*/
 }
