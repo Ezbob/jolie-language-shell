@@ -58,7 +58,7 @@ main
 		if ( is_defined( evalResponse.stderr ) ) {
 			output = "There is an error in your code: " + evalResponse.stderr 
 		} else {
-			output = evalResponse.stdout
+			output = string( evalResponse )
 		};	
 		
 		delete@File(filename)()
