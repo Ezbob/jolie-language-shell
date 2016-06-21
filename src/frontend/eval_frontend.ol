@@ -144,8 +144,9 @@ main {
     } ]
 
     [ shutdown()( response ) {
+        print@Console( "Received shutdown request.\n Shutting down..." )();
         stopSandbox@DockerSandbox( global.containerName )();
         shutdown@DockerSandbox()();
         shutdownPage
-    }] { exit }
+    }] { println@Console( "done." )(); exit }
 }

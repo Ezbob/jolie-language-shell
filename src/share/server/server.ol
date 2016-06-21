@@ -49,23 +49,18 @@ main
 
 		exec@Exec( "jolie" {
 			.args[0] = filename,
-      		.waitFor = 0,
-			.stdOutConsoleEnable = true
+      		.waitFor = 1,
+			.stdOutConsoleEnable = false
 		})( evalResponse );
 
 		sleep@Time( TIMEOUT )();
 
 		if ( is_defined( evalResponse.stderr ) ) {
-			output = "There is an error in your code: " + evalResponse.stderr 
+			output = "ERROR: There is an error in your code.\n"
 		} else {
 			output = string( evalResponse )
 		};	
 		
 		delete@File(filename)()
 	} ]
-/*
-	[ runCode( request )( response ) {
-
-	} ]
-	*/
 }
