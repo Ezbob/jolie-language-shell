@@ -1,6 +1,7 @@
 $(function() {
 	var editor = ace.edit("editor");
     var result = ace.edit("output");
+
 	$('.runbutton').click(function() {
         var stuff = editor.getValue();
 
@@ -10,7 +11,10 @@ $(function() {
 		      short: false,
 		      program: stuff
 		    };
-            
+        
+        result.selectAll();
+        result.insert("Running code...");
+
         $.post({
         	url: url,
         	data: content
@@ -18,7 +22,20 @@ $(function() {
             result.selectAll();
             result.insert(data);
         }).fail(function() {
-            console.log("Failed!");
+            result.selectAll();
+            result.insert("ERROR: Connection failed.");
         });
     });
+
+    var snippets = $('#snippets');
+ 
+    snippets.change( function() {
+        var url = "snippets/" + snippets.val();
+        $.get(url).done(function(data) { 
+            editor.selectAll();
+            editor.insert(data);
+        }).fail(function(){
+            console.log("Snippet loading failed...");
+        });
+    })
 });

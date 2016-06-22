@@ -4,6 +4,7 @@ include "../share/shared.iol"
 include "console.iol"
 include "time.iol"
 include "file.iol"
+include "exec.iol"
 include "string_utils.iol"
 include "eval_frontend.iol"
 
@@ -42,6 +43,12 @@ outputPort DockerSandbox {
 
 init {
     println@Console( "Starting..." )();
+
+    exec@Exec("/bin/bash" {
+        .args[0] = "../share/server/createJap.sh",
+        .waitFor = 1
+    })();
+
     global.containerName = "test1";
     japPath = "../share/server/server.jap";
     

@@ -8,6 +8,30 @@
 	border-bottom: 1px solid white;
 }
 
+.heading {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	width: 1000px;
+}
+
+#snippets {
+	border-color: grey;
+	border-top: none;
+	float: left;
+	display: block;
+	outline: none;
+	background-color: white;
+	width: 100px;
+	height: 25px;
+}
+
+.evaluator {
+	margin-right: auto;
+	margin-left: auto;
+	width: 1052px;
+}
+
 .codeTextarea {
 	border: none;
 	box-shadow: none;
@@ -20,15 +44,15 @@
 }
 
 .codePanel {
-	width: 800px;
-	height: 330px;
+	width: 1050px;
+	height: 430px;
 	border: 1px solid grey;
 }
 
 .results {
 	float: left;
-	height: 100px;
-	width: 720px;
+	height: 150px;
+	width: 970px;
 	border: 1px solid grey;
 	border-top: 0px;
 }
@@ -40,10 +64,11 @@
 	border: 1px solid grey;
 	border-left: 0px;
 	border-top: 0px;
-	height: 101px;
+	height: 151px;
 	outline: none;
 }
 
 .runbutton:active {
 	box-shadow: inset 1px 1px 1px grey;
 }
+

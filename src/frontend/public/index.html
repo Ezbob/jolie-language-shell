@@ -9,26 +9,29 @@
     </head>
     <body>
 
-    <h1>
-        Run-It! inc. version 0.0.1 pre-pre-pre-alpha RC0
-    </h1>
+        <h1 class="heading">
+            Run-It! inc. version 0.0.1 pre-pre-pre-alpha RC1
+        </h1>
 
-    <section class="evaluator">
-        <div id="editor" class="codePanel">include "console.iol"
+        <section class="evaluator">
+            <div id="editor" class="codePanel"></div>
 
-main {
-    println@Console( "Hello world!" )()
-}</div>
+            <div>  
+                <div class="results codeTextarea" id="output"></div>
+                <input class="runbutton" type="button" name="run" value="Run" />
+            </div>
 
-        <span>  
-            <div class="results codeTextarea" id="output"></div>
-            <input class="runbutton" type="button" name="run" value="Run" />
-        </span>
-    </section>
+            <div>          
+                <select id="snippets">
+                    <option value="helloworld.ol" selected="selected">Snippet 1</option>
+                    <option value="prettystrings.ol">Snippet 2</option>
+                </select>
+            </div>
+        </section>
 
-    <script src="resources/scripts/ace-builds/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="resources/scripts/setup.js" type="text/javascript" charset="utf-8"></script>
-    <script src="resources/scripts/ui.js" type="text/javascript" charset="utf-8"></script>
+        <script src="resources/scripts/ace-builds/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="resources/scripts/setup.js" type="text/javascript" charset="utf-8"></script>
+        <script src="resources/scripts/ui.js" type="text/javascript" charset="utf-8"></script>
     </body>
     
 </html>

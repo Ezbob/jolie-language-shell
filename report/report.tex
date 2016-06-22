@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage[a4paper,top=2.1cm,bottom=2.1cm,left=2.4cm,right=2.4cm]{geometry}
+
+\title{ \textbf{DM848}: Microservice Programming \\ {\Large Sandboxed Interpreter for Interactive Code Execution} }
+\author{Anders Busch, anbus12@student.sdu.dk}
+\date{\today \\ \hrulefill{}}
+
+%New command for inserting images put the images in pics subfolder
+%synopsis: \img{ scale }{ image name }{ caption text }
+\newcommand{\img}[3] {
+	\begin{center}
+	\includegraphics[scale=#1]{pics/#2}\\
+	{\small #3}
+	\end{center}
+}
+
+%New command for inserting pdfs put the pdfs in pics subfolder
+%synopsis: \pdf{ scale }{ page number }{ image name }{ caption text }
+\newcommand{\pdf}[4] {
+	\begin{center}
+	\includegraphics[scale=#1,page=#2]{pics/#3}\\
+	{\small #4}
+	\end{center}
+}
+
+% code listing options, can be "overload" by cascading 
+\lstset{breaklines=true, tabsize=4, numbers=left, title=\lstname, language=c}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\section{Preliminaries}
+
+\section{Technical Description}
+
+\section{Related Work and Discussion}
+
+\end{document}

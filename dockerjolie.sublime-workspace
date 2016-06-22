@@ -4,20 +4,164 @@
 		"selected_items":
 		[
 			[
+				"C",
+				"Console"
+			],
+			[
+				"pri",
+				"println"
+			],
+			[
+				"sc",
+				"scp2"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"con",
+				"containerName"
+			],
+			[
+				"sta",
+				"startRequest"
+			],
+			[
+				"exec",
+				"execVal"
+			],
+			[
+				"std",
+				"stderr"
+			],
+			[
+				"exe",
+				"executeResponse"
+			],
+			[
+				"ex",
+				"executeRequest"
+			],
+			[
+				"on",
+				"onlyFileName"
+			],
+			[
+				"ja",
+				"evaluatorJap"
+			],
+			[
+				"File",
+				"FileExtras"
+			],
+			[
+				"execu",
+				"execution"
+			],
+			[
+				"co",
+				"containerName"
+			],
+			[
+				"dele",
+				"deleteDir"
+			],
+			[
+				"entr",
+				"entry"
+			],
+			[
+				"ese",
+				"else"
+			],
+			[
+				"is",
+				"isJolieExec"
+			],
+			[
+				"ent",
+				"entry"
+			],
+			[
+				"tm",
+				"tmpJapFile"
+			],
+			[
+				"Fi",
+				"File"
+			],
+			[
+				"load",
+				"loadScope"
+			],
+			[
+				"Runt",
+				"RuntimeException"
+			],
+			[
+				"Exe",
+				"ExecExtras"
+			],
+			[
+				"E",
+				"ExecExtras"
+			],
+			[
+				"eval",
+				"evalResponse"
+			],
+			[
+				"time",
+				"timeOutExecResponse"
+			],
+			[
+				"ty",
+				"type	type (basic)"
+			],
+			[
+				"tim",
+				"timeOutExec"
+			],
+			[
+				"shu",
+				"shutdownPage"
+			],
+			[
+				"not",
+				"notFoundPage"
+			],
+			[
+				"def",
+				"define	define"
+			],
+			[
+				"WW",
+				"WWW_LOCATION"
+			],
+			[
+				"unde",
+				"undefined"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"so",
+				"socket	socket (localhost)"
+			],
+			[
+				"Web",
+				"WebIn"
+			],
+			[
 				"st",
 				"stderr"
 			],
 			[
 				"in",
 				"input"
-			],
-			[
-				"ex",
-				"exec"
-			],
-			[
-				"re",
-				"response"
 			],
 			[
 				"ed",
@@ -52,14 +196,6 @@
 				"monitor"
 			],
 			[
-				"con",
-				"containerName"
-			],
-			[
-				"co",
-				"console"
-			],
-			[
 				"fun",
 				"function"
 			],
@@ -70,10 +206,6 @@
 			[
 				"op",
 				"operation"
-			],
-			[
-				"res",
-				"result"
 			],
 			[
 				"defa",
@@ -112,10 +244,6 @@
 				"grosser	report.tex"
 			],
 			[
-				"exe",
-				"execution	execution"
-			],
-			[
 				"ke",
 				"keywordMapper"
 			],
@@ -130,10 +258,6 @@
 			[
 				"del",
 				"deleteTmp"
-			],
-			[
-				"tm",
-				"tmp"
 			],
 			[
 				"pro",
@@ -174,10 +298,6 @@
 			[
 				"ev",
 				"evalResponse"
-			],
-			[
-				"ty",
-				"type	type (basic)"
 			],
 			[
 				"Contain",
@@ -240,10 +360,6 @@
 				"haltResponse"
 			],
 			[
-				"sta",
-				"startResponse"
-			],
-			[
 				"hal",
 				"haltSandbox"
 			],
@@ -272,14 +388,6 @@
 				"trimp"
 			],
 			[
-				"so",
-				"sodep"
-			],
-			[
-				"C",
-				"ContainedService"
-			],
-			[
 				"loac",
 				"location"
 			],
@@ -296,24 +404,12 @@
 				"Interfaces"
 			],
 			[
-				"Fi",
-				"FileExtras"
-			],
-			[
-				"File",
-				"FileExtensionsInterface"
-			],
-			[
 				"conte",
 				"contents"
 			],
 			[
 				"jolie-la",
 				"jolie-launchers"
-			],
-			[
-				"is",
-				"is_defined	is_defined"
 			],
 			[
 				"show",
@@ -360,10 +456,6 @@
 				"DockerEvalOut"
 			],
 			[
-				"pri",
-				"print	print"
-			],
-			[
 				"pre",
 				"pretty"
 			],
@@ -382,10 +474,6 @@
 			[
 				"els",
 				"else"
-			],
-			[
-				"std",
-				"stdout"
 			],
 			[
 				"sed",
@@ -426,112 +514,24 @@
 			[
 				"doc",
 				"docker"
-			],
-			[
-				"Jo",
-				"JolieDockerInterface"
-			],
-			[
-				"sadn",
-				"sandboxStartResult"
-			],
-			[
-				"tpy",
-				"type	type (nested)"
-			],
-			[
-				"dc",
-				"dockerOut"
-			],
-			[
-				"docker",
-				"dockerInstanceId"
-			],
-			[
-				"docke",
-				"dockerInstanceId"
-			],
-			[
-				"file",
-				"filename"
-			],
-			[
-				"prin",
-				"print	print"
-			],
-			[
-				"ser",
-				"server"
-			],
-			[
-				"cop",
-				"copyContent"
-			],
-			[
-				"sand",
-				"startSandBoxRequest"
-			],
-			[
-				"ins",
-				"inspectContainer"
-			],
-			[
-				"pa",
-				"pathToFile"
-			],
-			[
-				"rep",
-				"response"
-			],
-			[
-				"getPro",
-				"getProperty"
-			],
-			[
-				"c",
-				"currentDir"
-			],
-			[
-				"sc",
-				"scriptName"
-			],
-			[
-				"a",
-				"args"
-			],
-			[
-				"dockerEx",
-				"dockerExecReq"
-			],
-			[
-				"type",
-				"type	type (nested)"
-			],
-			[
-				"acc",
-				"acceptMessage"
-			],
-			[
-				"mess",
-				"messageIn"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/tests/eval_test.ol",
+			"file": "src/share/server/server.ol",
 			"settings":
 			{
-				"buffer_size": 3621,
+				"buffer_size": 1187,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/share/server/server.ol",
+			"file": "src/share/server/createJap.sh",
 			"settings":
 			{
-				"buffer_size": 1144,
+				"buffer_size": 79,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,15 +547,7 @@
 			"file": "src/frontend/public/index.html",
 			"settings":
 			{
-				"buffer_size": 1049,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/tests/eval_test.iol",
-			"settings":
-			{
-				"buffer_size": 217,
+				"buffer_size": 1045,
 				"line_ending": "Unix"
 			}
 		},
@@ -568,18 +560,42 @@
 			}
 		},
 		{
-			"file": "src/dockerService/docker_jolie.ol",
+			"file": "src/javaServices/interfaces/jolie_docker.iol",
 			"settings":
 			{
-				"buffer_size": 4240,
+				"buffer_size": 1152,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/frontend/public/resources/scripts/ui.js",
+			"file": "src/dockerService/docker_jolie.ol",
 			"settings":
 			{
-				"buffer_size": 550,
+				"buffer_size": 4186,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/javaServices/interfaces/file_extras.iol",
+			"settings":
+			{
+				"buffer_size": 362,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/frontend/eval_frontend.ol",
+			"settings":
+			{
+				"buffer_size": 4317,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/frontend/eval_frontend.iol",
+			"settings":
+			{
+				"buffer_size": 224,
 				"line_ending": "Unix"
 			}
 		},
@@ -588,6 +604,14 @@
 			"settings":
 			{
 				"buffer_size": 147,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/tests/tester.ol",
+			"settings":
+			{
+				"buffer_size": 1565,
 				"line_ending": "Unix"
 			}
 		}
@@ -672,26 +696,41 @@
 		"/home/ezbob/Documents/jolieFun/project",
 		"/home/ezbob/Documents/jolieFun/project/src",
 		"/home/ezbob/Documents/jolieFun/project/src/dockerService",
-		"/home/ezbob/Documents/jolieFun/project/src/dockerService/tmp",
+		"/home/ezbob/Documents/jolieFun/project/src/frontend",
+		"/home/ezbob/Documents/jolieFun/project/src/frontend/public",
+		"/home/ezbob/Documents/jolieFun/project/src/javaServices",
+		"/home/ezbob/Documents/jolieFun/project/src/javaServices/interfaces",
+		"/home/ezbob/Documents/jolieFun/project/src/javaServices/lib",
 		"/home/ezbob/Documents/jolieFun/project/src/share",
 		"/home/ezbob/Documents/jolieFun/project/src/share/server",
 		"/home/ezbob/Documents/jolieFun/project/src/share/server/include",
+		"/home/ezbob/Documents/jolieFun/project/src/share/server/lib",
 		"/home/ezbob/Documents/jolieFun/project/src/tests"
 	],
 	"file_history":
 	[
-		"/home/ezbob/Documents/jolieFun/project/src/share/server/server.jap",
+		"/home/ezbob/Documents/jolieFun/project/report/report.tex",
+		"/home/ezbob/Documents/jolieFun/project/src/share/server/lib/containerSideJavaServices.jar",
+		"/home/ezbob/Documents/jolieFun/project/src/share/server/include/exec_extras.iol",
 		"/home/ezbob/Documents/jolieFun/project/src/javaServices/interfaces/jolie_docker.iol",
-		"/home/ezbob/Documents/jolieFun/project/src/tests/webtest.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/frontend/eval_frontend.iol",
+		"/home/ezbob/Documents/jolieFun/project/src/frontend/eval_frontend.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/javaServices/interfaces/file_extras.iol",
+		"/usr/bin/jolie",
+		"/home/ezbob/Documents/jolieFun/project/src/javaServices/interfaces/exec_extras.iol",
 		"/home/ezbob/Documents/jolieFun/project/src/javaServices/interfaces/spark_server.iol",
 		"/home/ezbob/Documents/jolieFun/project/src/frontend/public/resources/scripts/ui.js",
+		"/home/ezbob/Documents/jolieFun/project/src/tests/eval_test.iol",
+		"/home/ezbob/Documents/jolieFun/fun/print.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/tests/eval_test.ol",
+		"/home/ezbob/Documents/jolieFun/project/src/share/server/server.jap",
+		"/home/ezbob/Documents/jolieFun/project/src/tests/webtest.ol",
 		"/home/ezbob/Documents/jolieFun/project/src/frontend/frontend_service.ol",
 		"/home/ezbob/Documents/jolieFun/project/src/frontend/frontend_service.iol",
 		"/home/ezbob/Documents/jolieFun/project/src/share/server/server.ol",
 		"/home/ezbob/Documents/jolieFun/project/src/dockerService/docker_monitor.iol",
 		"/home/ezbob/Documents/jolieFun/project/src/dockerService/docker_monitor.ol",
 		"/home/ezbob/Documents/jolieFun/project/src/dockerService/container_monitor.ol",
-		"/home/ezbob/Documents/jolieFun/project/src/javaServices/interfaces/file_extras.iol",
 		"/home/ezbob/Downloads/ui.js",
 		"/home/ezbob/Downloads/aceScript",
 		"/home/ezbob/Documents/jolieFun/project/src/tests/tester.ol",
@@ -797,13 +836,11 @@
 		"/home/ezbob/Documents/jolieFun/project/src/sandboxManagerIFace.iol",
 		"/home/ezbob/Documents/jolieFun/project/src/sandboxManager.iol",
 		"/home/ezbob/Documents/jolieFun/project/src/jolie.ol",
-		"/home/ezbob/.config/sublime-text-3/Packages/Terminal/Terminal.sublime-settings",
-		"/home/ezbob/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-		"/home/ezbob/hello"
+		"/home/ezbob/.config/sublime-text-3/Packages/Terminal/Terminal.sublime-settings"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -844,54 +881,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 9,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/tests/eval_test.ol",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3621,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2331,
-								2331
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/jolie/Jolie.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1095.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "src/share/server/server.ol",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1144,
+						"buffer_size": 1187,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								422,
-								422
+								1001,
+								1001
 							]
 						],
 						"settings":
@@ -900,10 +907,38 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 226.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/share/server/createJap.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 79,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -931,7 +966,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -940,15 +975,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1049,
+						"buffer_size": 1045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								291,
-								291
+								356,
+								356
 							]
 						],
 						"settings":
@@ -961,24 +996,112 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "src/tests/eval_test.iol",
+					"file": "src/dockerService/docker_jolie.iol",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 217,
+						"buffer_size": 626,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								157,
-								157
+								28,
+								28
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/jolie/Jolie.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/javaServices/interfaces/jolie_docker.iol",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								732,
+								732
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/jolie/Jolie.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/dockerService/docker_jolie.ol",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4186,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9,
+								9
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/jolie/Jolie.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/javaServices/interfaces/file_extras.iol",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 362,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								232,
+								232
 							]
 						],
 						"settings":
@@ -993,96 +1116,65 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src/dockerService/docker_jolie.iol",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 626,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/jolie/Jolie.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/dockerService/docker_jolie.ol",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4240,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								201,
-								201
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/jolie/Jolie.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1665.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/frontend/public/resources/scripts/ui.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 550,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								546,
-								546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
 					"buffer": 8,
+					"file": "src/frontend/eval_frontend.ol",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3157,
+								3157
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/jolie/Jolie.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 424.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/frontend/eval_frontend.iol",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 224,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								224,
+								224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/jolie/Jolie.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"file": "src/share/server/include/common.iol",
 					"semi_transient": false,
 					"settings":
@@ -1106,7 +1198,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/tests/tester.ol",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1565,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								944,
+								944
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/jolie/Jolie.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1193,7 +1315,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 314.0,
+	"side_bar_width": 181.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -54,7 +54,7 @@ main
 		})( evalResponse );
 
 		if ( is_defined( evalResponse.stderr ) ) {
-			output = "ERROR: There is an error in your code.\n"
+			output = "ERROR: There is an error in your code.\n " + evalResponse.stderr
 		} else {
 			output = string( evalResponse )
 		};	
