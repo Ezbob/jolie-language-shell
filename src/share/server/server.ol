@@ -53,8 +53,6 @@ main
 			.stdOutConsoleEnable = false
 		})( evalResponse );
 
-		sleep@Time( TIMEOUT )();
-
 		if ( is_defined( evalResponse.stderr ) ) {
 			output = "ERROR: There is an error in your code.\n"
 		} else {

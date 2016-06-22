@@ -1,5 +1,5 @@
 include "../dockerService/docker_jolie.iol"
-include "../javaServices/interfaces/file_extras.iol"
+include "file_extras.iol"
 include "../share/shared.iol"
 include "console.iol"
 include "time.iol"

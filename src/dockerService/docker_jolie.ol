@@ -1,5 +1,5 @@
-include "../javaServices/interfaces/jolie_docker.iol"
-include "../javaServices/interfaces/file_extras.iol"
+include "jolie_docker.iol"
+include "file_extras.iol"
 include "file.iol"
 include "string_utils.iol"
 include "console.iol"
