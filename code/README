@@ -1,0 +1,34 @@
+###				      ###
+### The Jolie Interactive Interpreter ###
+###				      ###
+
+Installation of dependices
+------------
+
+Warning: The interpreter relies on a Docker installation where the user is authorized as a sudo user.
+
+1. Have Docker installed
+    The installation guide for Docker can be found at: https://docs.docker.com/engine/installation/
+2. Add your user to the Docker group
+    On most this is done via the command:
+	usermod -a -G docker <username>
+    Beware this adds extra permissions to the user, as the docker normally requires root permissions.
+3. Have Jolie installed
+    The installation guide is found here: http://www.jolie-lang.org/downloads.html
+
+How to start
+------------
+The starting order of the different microservices are conviently packed into a Bash script called 'start.sh'.
+Use this script to start all the services and browse to the url shown on the screen via the command:
+'./start.sh'
+
+
+If you cannot start the bash script for some reason or you don't want to, then use the following execution order:
+
+1. start the docker service
+	- Go to the directory: 'dockerService'
+	- Start the jolie microservice: 'docker_jolie.ol' 
+2. start the front end service
+	- Go to the directory: 'frontend'
+	- Start the jolie microservice: 'eval_frontend.ol'
+  
