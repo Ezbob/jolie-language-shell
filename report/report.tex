@@ -34,11 +34,14 @@
 \newcommand{\docker}[0] {\textsc{docker}}
 \newcommand{\jolie}[0] {\textsc{jolie}}
 
+
 \renewcommand{\baselinestretch}{1.5}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
+\newpage
 
 \section{Introduction}
 
@@ -48,8 +51,12 @@ When learning a new programming language, it is often useful to have a environme
 
 \noindent{}To achieve this goal, we had to solve the following problems:
 \begin{enumerate}
-\item 
+	\item Create an \docker{} image for running \jolie{} code in a \docker{} container. This image helps automating the process of creating new containers and is available on-line\footnote{https://hub.docker.com/r/ezbob/jolie/} for everyone interested in using \docker{} in conjunction with \jolie{}.
+	\item Produce a service for handling the setup of the \docker{} container. As our execution environment uses \jolie{} to communicate between services, we opted to create a service that handles the communication with the \docker{} CLI.
+	\item Make a service that can evaluate \jolie{} within the \docker{} container. For our evaluator to work, we have decided to use a \jolie{} service to evaluate sent \jolie{} code.
+	\item Assemble a front-end service for presenting and handling of the user interface. Here we opted for a simple \jolie{}-based HTTP server that serves our user interface. 
 \end{enumerate}
+
 
 \section{Preliminaries}
 

@@ -7,15 +7,10 @@ include "file.iol"
 include "exec.iol"
 include "string_utils.iol"
 include "eval_frontend.iol"
+include "config.ol"
 
 execution { 
 	concurrent 
-}
-
-constants {
-    WWW_DIR = "../frontend/public/",
-    WWW_LOCATION = "socket://localhost:8888",
-    EVAL_PORT = 8005,
 }
 
 inputPort WebIn {
@@ -62,6 +57,8 @@ init {
     getLocation@DockerSandbox( global.containerName )( location );
 
     ContainedService.location = "socket://" + location + ":" + location.ports[0];
+
+    setMimeTypeFile@File(MIME_FILE)();
     
     println@Console( "Started." )();
 
@@ -120,7 +117,6 @@ main {
             };
 
             op = request.operation;
-            println@Console( request.operation )();
             op.regex = "\\?"; // look for http args
             split@StringUtils( op )( op );
 
@@ -146,7 +142,7 @@ main {
 
             readFile@File( { .filename = filename } )( response );
 
-            getMimeType@FileExtras( filename )( mime );
+            getMimeType@File( filename )( mime );
             println@Console( "[SERVED: " + op.result[0] + ", CONTENT-TYPE: " + mime + " ]" )()
         }
     } ]
