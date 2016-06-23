@@ -5,7 +5,7 @@ $( function() {
     editor.$blockScrolling = Infinity;
     editor.setShowPrintMargin(false);
 
-    $.get("snippets/helloworld.ol").done( function(data) {
+    $.get("resources/snippets/helloworld.ol").done( function(data) {
     	editor.selectAll();
         editor.insert(data); 
     });

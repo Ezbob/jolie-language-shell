@@ -49,7 +49,7 @@ init {
         .waitFor = 1
     })();
 
-    global.containerName = "test1";
+    global.containerName = "evaluator2000";
     japPath = "../share/server/server.jap";
     
     toAbsolutePath@FileExtras( japPath )( japAbsPath );
@@ -114,14 +114,13 @@ main {
                 statusCode = 404 
             );
 
-            println@Console( request )();
-
             // java script stuff??
             if ( is_defined( request.data._escaped_fragment_ ) ) {
                 request.operation = request.data._escaped_fragment_
             };
 
             op = request.operation;
+            println@Console( request.operation )();
             op.regex = "\\?"; // look for http args
             split@StringUtils( op )( op );
 
@@ -133,9 +132,9 @@ main {
             toAbsolutePath@FileExtras( filename )( filename );
 
             install( PermissionDenied => 
-                println@Console( "[FILE NOT FOUND: " + filename + " ]" )(); 
+                println@Console( "[PERMISSION DENIED FOR: " + filename + " ]" )(); 
                 notFoundPage;
-                statusCode = 404 
+                statusCode = 403 
             );
 
             toAbsolutePath@FileExtras( WWW_DIR )( absPublic );

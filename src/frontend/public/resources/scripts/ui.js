@@ -24,7 +24,7 @@ $(function() {
     var snippets = $('#snippets');
  
     snippets.change( function() {
-        var url = "snippets/" + snippets.val();
+        var url = "resources/snippets/" + snippets.val();
         $.get(url).done(function(data) { 
             editor.selectAll();
             editor.insert(data);
