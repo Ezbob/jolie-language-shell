@@ -8,13 +8,6 @@
 	border-bottom: 1px solid white;
 }
 
-.heading {
-	text-align: center;
-	margin-right: auto;
-	margin-left: auto;
-	width: 1000px;
-}
-
 #snippets {
 	border-color: grey;
 	border-top: none;
@@ -24,6 +17,13 @@
 	background-color: white;
 	width: 100px;
 	height: 25px;
+}
+
+.heading {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	width: 1000px;
 }
 
 .evaluator {
@@ -57,18 +57,29 @@
 	border-top: 0px;
 }
 
+.button {
+	background: none;
+	outline: none;
+	border: 1px solid grey;
+	height: 25px;
+}
+
+.button:active {
+	box-shadow: inset 1px 1px 1px grey;
+}
+
+.exitbutton {
+	float: left;
+	border-top: 0px;
+	border-left: 0px;
+	width: 100px;
+}
+
 .runbutton {
 	float: left;
 	width: 80px;
-	background: none;
-	border: 1px solid grey;
 	border-left: 0px;
 	border-top: 0px;
 	height: 151px;
-	outline: none;
-}
-
-.runbutton:active {
-	box-shadow: inset 1px 1px 1px grey;
 }
 

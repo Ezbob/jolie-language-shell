@@ -37,5 +37,11 @@ $(function() {
         }).fail(function(){
             console.log("Snippet loading failed...");
         });
-    })
+    });
+
+    $('.exitbutton').click( function() {
+        result.selectAll();
+        result.insert("Shutting down. Please wait...");
+        window.location.href = "/shutdown";
+    });
 });
