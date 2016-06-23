@@ -114,6 +114,8 @@ main {
                 statusCode = 404 
             );
 
+            println@Console( request )();
+
             // java script stuff??
             if ( is_defined( request.data._escaped_fragment_ ) ) {
                 request.operation = request.data._escaped_fragment_

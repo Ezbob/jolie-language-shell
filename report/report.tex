@@ -31,6 +31,9 @@
 % code listing options, can be "overload" by cascading 
 \lstset{breaklines=true, tabsize=4, numbers=left, title=\lstname, language=c}
 
+\newcommand{\docker}[0] {\textsc{docker}}
+\newcommand{\jolie}[0] {\textsc{jolie}}
+
 \renewcommand{\baselinestretch}{1.5}
 
 \begin{document}
@@ -38,6 +41,10 @@
 \maketitle
 
 \section{Introduction}
+
+When learning a new programming language, it is often useful to have a environment where the learner can execute code, quick and easy without having to worry about breaking the execution environment or installing new software locally. \\
+
+\noindent{}In this report we will describe the design and implementation of a cloud server, for executing \jolie{} code, embedded using the popular virtualization application \docker{}. 
 
 \section{Preliminaries}
 

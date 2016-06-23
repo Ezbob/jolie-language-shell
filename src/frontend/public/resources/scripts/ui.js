@@ -3,21 +3,15 @@ $(function() {
     var result = ace.edit("output");
 
 	$('.runbutton').click(function() {
-        var stuff = editor.getValue();
 
         var url = "/runCode";
 
-        var content = {
-		      short: false,
-		      program: stuff
-		    };
-        
         result.selectAll();
         result.insert("Running code...");
 
         $.post({
         	url: url,
-        	data: content
+        	data: { short: false, program: editor.getValue() }
         }).done(function(data) {
             result.selectAll();
             result.insert(data);
