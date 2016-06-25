@@ -106,13 +106,24 @@ In the diagram, the dashed arrows indicates responses and the full arrows indica
 
 \subsection{Configuration of the Docker Container}
 
-When a service request a container, we pass some configuration parameters to \docker{} to limit the consumption of the host resources and to mount a certain portion of the host file system to hold the compiled \jolie{} file created within the container. The following configuration parameters where used:
+When a service request a container, we pass some configuration parameters to \docker{} to limit the consumption of the host resources and to mount a certain portion of the host file system to hold the compiled \jolie{} file created within the container. The following configuration parameters are parsed during the initialization phase:
+\begin{description}
+\item[--read-only] makes the root file system read-only within the container.
+\item[-m 256m] sets the main memory limit for the container to 256 mega bytes.
+\item[--cpu-shares 256] sets a relative weighted upper bound on the how much the container can use the CPUs. The maximum number of shares is 1024.
+\item[--cpuset-cpus 0,1] the container may only execute on CPU core 0 and 1.
+\item[--expose $\langle$port$\rangle$] exposes a single port (selected by the client), to enable the communication with the contained service.
+\end{description}
+Furthermore, the \jolie{} image uses an user called "jolie" with no root privileges and uses the home directory "/home/jolie" as the main workspace for execution of \jolie{} programs.  
 
 \subsection{Operations}
 Our application supports three main operations:
 \begin{enumerate}
-\item Initialization and creation of a container using configuration that limits the cpu-shares, file system 
+\item Initialization and creation of a container using a configuration that limits the container resources.
+\item User-inputted code that was submitted using the browser editor will be executed by the contained service.
+\item Shutdown of the application and removal of the created containers.
 \end{enumerate}
+
 
 \section{Related Work and Discussion}
 
