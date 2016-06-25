@@ -123,7 +123,14 @@ Our application supports three main operations:
 \item User-inputted code that was submitted using the browser editor will be executed by the contained service.
 \item Shutdown of the application and removal of the created containers.
 \end{enumerate}
+The initialization process is depicted in the following diagram:
+\img{0.7}{init}{The initialization process}
+To start the initialization process the user has to start the \textbf{docker\_jolie} service first and then the \textbf{eval\_frontend} service. Once this is done, the initialization phase begins by creating a new container which contains the service \textbf{server}. A synchronization phase is used between \textbf{jolie\_docker} and \textbf{docker CLI}. This is done via examining the \docker{} logs for a pre-determined signal, emitted by \textbf{server}, to ensure that the contained service is up before proceeding.\\
 
+\noindent{}The submission process is depicted in the following diagram:
+\img{0.7}{submit}{The code submission phase}
+
+%% TODO
 
 \section{Related Work and Discussion}
 
