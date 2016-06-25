@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"ru",
+				"runButton"
+			],
+			[
 				"bor",
 				"border-left"
 			],
@@ -510,10 +514,6 @@
 			[
 				"els",
 				"else"
-			],
-			[
-				"sed",
-				"sendRequest"
 			]
 		]
 	},
@@ -547,7 +547,7 @@
 			"file": "src/frontend/public/resources/scripts/ui.js",
 			"settings":
 			{
-				"buffer_size": 1077,
+				"buffer_size": 1148,
 				"line_ending": "Unix"
 			}
 		},
@@ -968,7 +968,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -977,15 +977,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1077,
+						"buffer_size": 1148,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								122,
+								122
 							]
 						],
 						"settings":
@@ -1057,7 +1057,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{

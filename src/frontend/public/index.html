@@ -16,22 +16,17 @@
         <section class="evaluator">
 
             <div id="editor" class="codePanel"></div>
+ 
+            <div class="results codeTextarea" id="output"></div>
+            
+            <input class="button runbutton" type="button" name="run" value="Run" />
 
-            <div>  
-                <div class="results codeTextarea" id="output"></div>
-                <input class="button runbutton" type="button" name="run" value="Run" />
-            </div>
+            <select id="snippets">
+                <option value="helloworld.ol" selected="selected">Snippet 1</option>
+                <option value="structures.ol">Snippet 2</option>
+            </select>
 
-            <div>          
-                <select id="snippets">
-                    <option value="helloworld.ol" selected="selected">Snippet 1</option>
-                    <option value="structures.ol">Snippet 2</option>
-                </select>
-            </div>
-
-            <div>
-                <input class="button exitbutton" type="button" name="exit" value="Shutdown">
-            </div>
+            <input class="button exitbutton" type="button" name="exit" value="Shutdown">
 
         </section>
 

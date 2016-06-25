@@ -6,7 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage[a4paper,top=2.1cm,bottom=2.1cm,left=2.4cm,right=2.4cm]{geometry}
 
-\title{ \textbf{DM848}: Microservice Programming \\ {\Large Sandboxed Interpreter for Interactive Code Execution Using Docker} }
+\title{ \textbf{DM848}: Microservice Programming \\ {\Large Sandboxed Interpreter for Interactive Code Execution Using Docker Virtualization} }
 \author{Anders Busch, anbus12@student.sdu.dk}
 \date{\today \\ \hrulefill{}}
 
@@ -35,6 +35,7 @@
 \newcommand{\jolie}[0] {\textsc{jolie}}
 \newcommand{\git} {\textsc{git}}
 \newcommand{\ubuntu} {\textsc{ubuntu}}
+\newcommand{\java} {\textsc{java}}
 
 \renewcommand{\baselinestretch}{1.5}
 
@@ -46,11 +47,15 @@
 
 \section{Introduction}
 
-When learning a new programming language, it is often useful to have a environment where the learner can execute code, quick and easy without having to worry about breaking the execution environment or installing new software locally. \\
+When learning a new programming language, it is often useful to have a environment where the learner can execute code, quick and easy without having to worry about breaking the execution environment or installing new software locally.
 
-\noindent{}The goal of this project was to create a cloud server for executing \jolie{} programs through the browser; and to embed the cloud server in a virtual environment provided by the virtualization library \docker{}.\\
+\subsection{Application Goal}
 
-\noindent{}To achieve this goal, we had to solve the following problems:
+The goal of this project was to create a cloud server for executing \jolie{} programs through the browser; and to embed the cloud server in a virtual environment provided by the virtualization library \docker{} to provide encapsulation and limit the resource consumption of the cloud server.
+
+\subsection{Problems}
+
+To achieve the application goal, we had to solve the following problems:
 \begin{enumerate}
 	\item Create an \docker{} image for running \jolie{} code in a \docker{} container. This image helps automating the process of creating new containers and is available on-line\footnote{https://hub.docker.com/r/ezbob/jolie/} for everyone interested in using \docker{} in conjunction with \jolie{}.
 	\item Produce a service for handling the setup of the \docker{} container. As our execution environment uses \jolie{} to communicate between services, we opted to create a service that handles the communication with the \docker{} CLI.
@@ -58,10 +63,9 @@ When learning a new programming language, it is often useful to have a environme
 	\item Assemble a front-end service for presenting and handling of the user interface. Here we opted for a simple \jolie{}-based HTTP server that serves our user interface. 
 \end{enumerate}
 
-
 \section{Preliminaries}
 
-\subsection{Docker}
+\subsection{Docker Concepts}
 
 The \docker{} application is a lightweight virtualization technology that focuses on creating virtualization of applications in microservice manner.\cite{DBLP:journals/software/Anderson15}
 
@@ -69,27 +73,55 @@ The \docker{} application is a lightweight virtualization technology that focuse
 
 \paragraph{Architecture} \docker{} uses a server-client architecture to communicate between the client, and the underlying server, the \docker{} daemon. The client, in this case, is a front-end program that exposes some interface to the user (Command Line Interface or a RESTful API), and uses this to communicate with the daemon (the server). The server is the main workhorse program that builds, executes and maintains the different \docker{} containers.
 
-\paragraph{Containers} A \docker{} container is the virtualization environment that contains a running application, and as such can be thought of an microservice or a instance of a class (using Object Oriented terminology) that the \docker{} daemon maintains. Container provides isolation for the running code and uses a layered file system called the union file system inside the container.\cite{DBLP:journals/software/Anderson15} This union file system keeps track of changes much in the same way version control systems, such as \git{}, does; namely by keeping track of writes and only write to the file system once an action has been committed. Containers are build from images.
+\paragraph{Containers} A \docker{} container is the virtualization environment that contains a running application, and as such can be thought of an microservice or a instance of a class (using Object Oriented terminology) that the \docker{} daemon maintains. Container provides isolation for the running code and uses a layered file system called the union file system inside the container.\cite{DBLP:journals/software/Anderson15} This union file system keeps track of changes much in the same way version control systems, such as \git{}, does; namely by keeping track of writes and only write to the file system once an action has been committed. Containers are build from images.\cite{DockerTutorial} 
 
 \paragraph{Images} A \docker{} image, is an read-only minimal-size file that can be used to build new containers via the \docker{} daemon. These images make it possible to share different container-setup with different users, and can be created either using an existing \docker{} container or using a special file called a \docker{} file. 
 
 \paragraph{Registries}
-Images can either be fetched from a local repository called the \textbf{local registry} or remotely from a repository called the \textbf{remote registry}. \docker{} provides a standard remote registry service\footnote{https://hub.docker.com/} for fetching images such as an \ubuntu{} linux image and much more.
+Images can either be fetched from a local repository called the \textbf{local registry} or remotely from a repository called the \textbf{remote registry}. \docker{} provides a standard remote registry service\footnote{https://hub.docker.com/} for fetching official images such as the \ubuntu{} linux image and user images such as \jolie{} image we have created to be used in this application.
 
 \paragraph{Volumes} A volume is a way of creating a persistent data volume within a container. A volume is created separately from any containers, initialized with any container and can be mounted to one or more containers for sharing of persistent data.
 
-\paragraph{Docker Engine} The \docker{} engine is the part of the \docker{} daemon that handles the running containers. The engine communicates directly with the host operating system, on behave of the containers. This is different to most other virtual environments, where a hypervisor is employed support the virtual operating system running in the virtual environment.     
+\paragraph{Docker Engine} The \docker{} daemon together with the front-end service is called the \docker{} engine. The engine communicates directly with the host operating system, on behave of the containers. This is different to most other virtual environments, where a hypervisor is employed support the virtual operating system running in the virtual environment.\cite{DBLP:journals/software/Anderson15}
+
+\paragraph{Encapsulation and Resource Configuration}
+\docker{} uses two Linux kernel concepts to provide encapsulation and resource configuration for the containers; \textit{control groups} and \textit{namespaces}. 
+\subparagraph{Control groups} or \textit{cgroups} enables the user to configure the resources of an container. This useful when one wants to limit for example the memory footprint or the number of CPU cores available for the container to use on the host machine.
+\subparagraph{Namespaces} enables the encapsulation of a container as a process assigning some resources to it. Using namespaces limits the access from the container to the host system.  
 
 \section{Technical Description}
 
+\subsection{Application Overview}
+Our application uses \jolie{} as the main choice of programming language, and is build around a number of microservices:
 
+\begin{description}
+\item[jolie\_docker] An embedded \java{} service that works as an interface for the \docker{} CLI. This service is responsible for creating containers and halting them through the \docker{} CLI. 
+\item[docker\_jolie] This service is responsible for embedding the \textbf{jolie\_docker} service and act as an container server for \jolie{} clients. 
+\item[eval\_frontend] A service that serves as the HTTP server front-end for the application. 
+\item[server] A \jolie{} service, that serves as the cloud server embedded inside the \docker{} container.
+\end{description}
+The following diagram illustrates how the different services are connected:
+\img{0.6}{system}{Overview of our application}
+In the diagram, the dashed arrows indicates responses and the full arrows indicates request for some data.
+
+\subsection{Configuration of the Docker Container}
+
+When a service request a container, we pass some configuration parameters to \docker{} to limit the consumption of the host resources and to mount a certain portion of the host file system to hold the compiled \jolie{} file created within the container.
+
+\subsection{Operations}
+Our application supports three main operations:
+\begin{enumerate}
+\item Initialization and creation of a container using configuration that limits the cpu-shares, file system 
+\end{enumerate}
 
 \section{Related Work and Discussion}
 
-Although we partly achieved what we set out to create; there are some limitation in the current implementation that can be expanded upon in future revision of this execution tool, namely the support for inter-service communications, better error explanation and dynamic linting\footnote{https://en.wikipedia.org/wiki/Lint\_\%28software\%29} of the program code.
+Although we partly achieved what we set out to create; there are some limitation in the current implementation that can be expanded upon in future revision of this execution tool, namely the support for inter-service communications in the context of the code executioner, better error explanation and dynamic linting\footnote{https://en.wikipedia.org/wiki/Lint\_\%28software\%29} of the program code.\\
+
+\noindent{}We would also have liked to generalize the \textbf{docker\_jolie} service in such a way that it could handle the communication between the container and the \jolie{} client in a way that would allow for remote access to the container.
 
 \bibliography{report} 
-\bibliographystyle{ieeetr}
+\bibliographystyle{plain}
 
 
 \end{document}
