@@ -36,6 +36,7 @@
 \newcommand{\git} {\textsc{git}}
 \newcommand{\ubuntu} {\textsc{ubuntu}}
 \newcommand{\java} {\textsc{java}}
+\newcommand{\ace} {\textsc{ace}}
 
 \renewcommand{\baselinestretch}{1.5}
 
@@ -123,21 +124,38 @@ Our application supports three main operations:
 \item User-inputted code that was submitted using the browser editor will be executed by the contained service.
 \item Shutdown of the application and removal of the created containers.
 \end{enumerate}
+
+\subsubsection{Initialization}
 The initialization process is depicted in the following diagram:
 \img{0.7}{init}{The initialization process}
-To start the initialization process the user has to start the \textbf{docker\_jolie} service first and then the \textbf{eval\_frontend} service. Once this is done, the initialization phase begins by creating a new container which contains the service \textbf{server}. A synchronization phase is used between \textbf{jolie\_docker} and \textbf{docker CLI}. This is done via examining the \docker{} logs for a pre-determined signal, emitted by \textbf{server}, to ensure that the contained service is up before proceeding.\\
+To start the initialization process the user has to start the \textbf{docker\_jolie} service first and then the \textbf{eval\_frontend} service. Once this is done, the initialization phase begins by creating a new container which contains the service \textbf{server}. A synchronization phase is used between \textbf{jolie\_docker} and \textbf{docker CLI}. This is done via examining the \docker{} logs for a pre-determined signal, emitted by \textbf{server}, to ensure that the contained service is up before proceeding.
 
+\subsubsection{Code submission}
 \noindent{}The submission process is depicted in the following diagram:
 \img{0.7}{submit}{The code submission phase}
+For completeness this diagram includes the request for a HTML page containing the code editor (created using the \ace{} library\footnote{https://ace.c9.io/\#nav=about}) and a submission request button.\\  
 
-%% TODO
+The code submission process is a relative simple one. The front-end talks serves HTML pages and handles communication directly with the contained cloud server. Messages between the browser and the front-end \textbf{eval\_frontend} are send via the HTTP standard unlike the other services in this application that uses the more compact protocol SODEP which has less overhead than HTTP. This reason here is, of course, that this is a protocol that the browser understands.
+
+\subsubsection{Termination}
+The following sequence diagram depicts the termination process:
+\img{0.6}{term}{The termination process}
+Each of our services includes a shutdown operation. As the \textbf{jolie\_docker} service is an embedded \java{} service it is also terminated automatically when the embedder service \textbf{docker\_jolie} is terminated. \\
+
+\noindent{}The whole termination process stops all services and the containers associated with them. In a more realistic environment the option to shutdown all services and the containers would be left to the site administrator, but, for convenience sake, a server shutdown button is included in the user interface to initiate this process.\\
+
+\noindent{}The \docker{} 'stop' and 'rm' commands are responsible for halting the container (and thus stopping the \textbf{server} service), and removing the remains of the container, respectively.
+
+\subsection{User manual}
+The installation steps and how-to guide are include in a read-me file called \textit{README} in code directory of this project.
 
 \section{Related Work and Discussion}
 
-Although we partly achieved what we set out to create; there are some limitation in the current implementation that can be expanded upon in future revision of this execution tool, namely the support for inter-service communications in the context of the code executioner, better error explanation and dynamic linting\footnote{https://en.wikipedia.org/wiki/Lint\_\%28software\%29} of the program code.\\
+Although we partly achieved what we set out to create; there are some limitation in the current implementation that can be expanded upon in future revision of this execution tool, namely the support for inter-service communications in the context of the code executioner (emulation of multiple services), better error explanation and dynamic linting\footnote{https://en.wikipedia.org/wiki/Lint\_\%28software\%29} of the program code.\\
 
 \noindent{}We would also have liked to generalize the \textbf{docker\_jolie} service in such a way that it could handle the communication between the container and the \jolie{} client in a way that would allow for remote access to the container.
 
+\newpage
 \bibliography{report} 
 \bibliographystyle{plain}
 

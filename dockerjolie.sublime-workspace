@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"start",
+				"startDockerResponse"
+			],
+			[
 				"ru",
 				"runButton"
 			],
@@ -500,10 +504,6 @@
 				"pretty"
 			],
 			[
-				"start",
-				"startRequest"
-			],
-			[
 				"s",
 				"stderr"
 			],
@@ -555,7 +555,7 @@
 			"file": "src/frontend/public/index.html",
 			"settings":
 			{
-				"buffer_size": 1448,
+				"buffer_size": 1311,
 				"line_ending": "Unix"
 			}
 		},
@@ -604,6 +604,25 @@
 			"settings":
 			{
 				"buffer_size": 4397,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/frontend/config.ol",
+			"settings":
+			{
+				"buffer_size": 195,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "# Content type configuration. Append you're favourite MIME type to the end of this file \n# to let the browser know what kind of files you are serving\n# The format is \"<type-name> <whitespace-seperated list of file extendsion names>\"  \nimage/jpeg jpg jpeg\nimage/png png\nimage/tiff tiff\nimage/x-icon ico\nimage/svg+xml svg\napplication/xml xml\napplication/javascript js\ntext/css css\napplication/pdf pdf\napplication/x-7z-compressed 7z\napplication/zip zip\ntext/yaml yaml\napplication/java-archive jar\napplication/java-vm class\ntext/x-java-source java\napplication/java-serialized-object ser\napplication/x-java-jnlp-file jnlp\napplication/x-latex latex tex\napplication/x-jolie-source ol\napplication/x-jolie-interface iol",
+			"file": "src/frontend/mime.types",
+			"file_size": 710,
+			"file_write_time": 131111709199778674,
+			"settings":
+			{
+				"buffer_size": 710,
 				"line_ending": "Unix"
 			}
 		},
@@ -703,6 +722,7 @@
 	[
 		"/home/ezbob/Documents/jolieFun/project",
 		"/home/ezbob/Documents/jolieFun/project/src",
+		"/home/ezbob/Documents/jolieFun/project/src/dockerService",
 		"/home/ezbob/Documents/jolieFun/project/src/frontend",
 		"/home/ezbob/Documents/jolieFun/project/src/frontend/public",
 		"/home/ezbob/Documents/jolieFun/project/src/frontend/public/resources"
@@ -881,7 +901,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 12,
 			"sheets":
 			[
 				{
@@ -907,10 +927,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 324.0,
+						"translation.y": 298.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -938,7 +958,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -968,7 +988,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -998,7 +1018,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1007,15 +1027,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1448,
+						"buffer_size": 1311,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1310,
+								1310
 							]
 						],
 						"settings":
@@ -1028,7 +1048,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1054,10 +1074,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 496.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1087,7 +1107,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1113,10 +1133,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 324.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1132,8 +1152,8 @@
 						"selection":
 						[
 							[
-								9,
-								9
+								1534,
+								1534
 							]
 						],
 						"settings":
@@ -1142,10 +1162,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2574.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1173,7 +1193,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -1189,8 +1209,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								2692,
+								2692
 							]
 						],
 						"settings":
@@ -1200,14 +1220,70 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1026.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 11,
+					"file": "src/frontend/config.ol",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/jolie/Jolie.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/frontend/mime.types",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 710,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								149,
+								149
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
 					"file": "src/share/server/include/common.iol",
 					"semi_transient": false,
 					"settings":
@@ -1231,11 +1307,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 14,
 					"file": "src/tests/tester.ol",
 					"semi_transient": false,
 					"settings":
@@ -1261,7 +1337,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]

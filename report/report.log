@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.5.18)  25 JUN 2016 20:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.5.18)  26 JUN 2016 14:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -375,18 +375,18 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -482,9 +482,9 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 44.
+(Font)              <14.4> on input line 45.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 44.
+(Font)              <7> on input line 45.
 (./report.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 3.
@@ -500,63 +500,78 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 60.
+(Font)              <5> on input line 61.
  [2]
 <pics/arch.png, id=16, 655.44875pt x 384.43625pt>
 File: pics/arch.png Graphic file (type png)
  <use pics/arch.png>
-Package pdftex.def Info: pics/arch.png used on input line 72.
+Package pdftex.def Info: pics/arch.png used on input line 73.
 (pdftex.def)             Requested size: 393.27228pt x 230.66351pt.
  [3 <./pics/arch.png>] [4] <pics/system.png, id=26, 709.65125pt x 354.32375pt>
 File: pics/system.png Graphic file (type png)
 
 <use pics/system.png>
-Package pdftex.def Info: pics/system.png used on input line 104.
+Package pdftex.def Info: pics/system.png used on input line 105.
 (pdftex.def)             Requested size: 425.79402pt x 212.59589pt.
  [5 <./pics/system.png>]
 <pics/init.png, id=31, 525.965pt x 285.065pt>
 File: pics/init.png Graphic file (type png)
  <use pics/init.png>
-Package pdftex.def Info: pics/init.png used on input line 127.
+Package pdftex.def Info: pics/init.png used on input line 130.
 (pdftex.def)             Requested size: 368.17297pt x 199.54413pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
-
- []
-
-[6 <./pics/init.png>] <pics/submit.png, id=37, 465.74pt x 274.02374pt>
+ [6]
+<pics/submit.png, id=36, 465.74pt x 274.02374pt>
 File: pics/submit.png Graphic file (type png)
-
-<use pics/submit.png>
-Package pdftex.def Info: pics/submit.png used on input line 131.
+ <use pics/submit.png>
+Package pdftex.def Info: pics/submit.png used on input line 135.
 (pdftex.def)             Requested size: 326.01578pt x 191.8153pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
-(./report.bbl [7 <./pics/submit.png>]) [8] (./report.aux) ) 
+[7 <./pics/init.png> <./pics/submit.png>]
+<pics/term.png, id=43, 676.5275pt x 304.13625pt>
+File: pics/term.png Graphic file (type png)
+ <use pics/term.png>
+Package pdftex.def Info: pics/term.png used on input line 142.
+(pdftex.def)             Requested size: 405.91962pt x 182.48315pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+[8 <./pics/term.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
+
+ []
+
+[9] (./report.bbl) [10] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 4165 strings out of 493054
- 56713 string characters out of 6140586
- 148303 words of memory out of 5000000
- 7627 multiletter control sequences out of 15000+600000
+ 4171 strings out of 493054
+ 56795 string characters out of 6140586
+ 147303 words of memory out of 5000000
+ 7632 multiletter control sequences out of 15000+600000
  10364 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,8n,49p,773b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
-b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
-2.pfb>
-Output written on report.pdf (8 pages, 185776 bytes).
+ 39i,8n,49p,773b,220s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on report.pdf (10 pages, 224887 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 84 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
