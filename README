@@ -10,9 +10,9 @@ Warning: The interpreter relies on a Docker installation where the user is autho
 1. Have Docker installed
     The installation guide for Docker can be found at: https://docs.docker.com/engine/installation/
 2. Add your user to the Docker group
-    On most this is done via the command:
+    On most *nix systems this is done via the command:
 	usermod -a -G docker <username>
-    Beware this adds extra permissions to the user, as the docker normally requires root permissions.
+    ! Beware this adds extra permissions to the user as the docker normally requires root permissions !
 3. Have Jolie installed
     The installation guide is found here: http://www.jolie-lang.org/downloads.html
 
@@ -23,12 +23,13 @@ Use this script to start all the services and browse to the url shown on the scr
 './start.sh'
 
 
-If you cannot start the bash script for some reason or you don't want to, then use the following execution order:
+If you cannot start the bash script for some reason or you don't want to, then use the following execution 
+order:
 
-1. start the docker service
+1. Start the docker service
 	- Go to the directory: 'dockerService'
 	- Start the jolie microservice: 'docker_jolie.ol' 
-2. start the front end service
+2. Start the front end service
 	- Go to the directory: 'frontend'
 	- Start the jolie microservice: 'eval_frontend.ol'
-  
+3. Browse to the IP address shown in the terminal
