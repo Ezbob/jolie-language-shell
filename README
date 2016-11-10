@@ -2,7 +2,7 @@
 ### The Jolie Interactive Interpreter ###
 ###				      ###
 
-Installation of dependices
+Installation of dependencies
 ------------
 
 Warning: The interpreter relies on a Docker installation where the user is authorized as a sudo user.
