@@ -23,8 +23,7 @@ Use this script to start all the services and browse to the url shown on the scr
 './start.sh'
 
 
-If you cannot start the bash script for some reason or you don't want to, then use the following execution 
-order:
+If you cannot start the bash script for some reason or you don't want to, then use the following execution order:
 
 1. Start the docker service
 	- Go to the directory: 'dockerService'
